@@ -1,0 +1,17 @@
+<!--pages/site/site.wxml-->
+<view class="weui-cells weui-cells_after-title">
+   <block wx:for="{{tempValues}}" wx:key="item.Id">
+      <view class="user_addr_item">
+        <text class="section_book" wx:if="{{item.CState==true}}"></text>
+        <text wx:else></text>
+        <text class="addr_sub">{{item.Consignee}} {{item.LinkPhone}}</text>
+        <text class="addr_address">{{item.Province}} {{item.CAddress}}</text>
+        <text class='addr-dele' bindtap="deleteaddress" data-aid="{{item.Id}}">×</text>
+        <view class="addr_edit" bindtap="editAddr" data-addrid="{{index+1}}"></view>
+      </view>
+    </block>
+</view>
+
+<view class="weui-cells weui-cells_after-title">
+    <navigator url="../zaddress/address"><button class="textbtn" hover-class="other-button-hover">新增收货地址</button></navigator>
+</view>

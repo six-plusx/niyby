@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/zindex/index",
+    "pages/fshow/show",
+    "pages/logs/logs",
+    "pages/preorder/preorder",
+    "pages/zappointment/appointment",
+    "pages/zaddress/address",
+    "pages/sbuy/buy",
+    "pages/qstartentering/startentering",
+    "pages/qaleadyentering/aleadyentering",
+    "pages/zsite/site",
+    "pages/qaddbooks/qaddbooks"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "我们的小程序",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#878787",
+    "selectedColor": "#000",
+    "borderStyle": "black",
+    "backgroundColor": "#fcfcfc",
+    "list": [
+      {
+        "pagePath": "pages/fshow/show",
+        "text": "首页",
+        "iconPath": "img/orderListNormal.png",
+        "selectedIconPath": "img/orderListSelect.png"
+      },
+      {
+        "pagePath": "pages/qstartentering/startentering",
+        "text": "图书录入",
+        "iconPath": "img/mealNormal.png",
+        "selectedIconPath": "img/mealSelect.png"
+      },
+      {
+        "pagePath": "pages/zindex/index",
+        "text": "我的",
+        "iconPath": "img/myNormal.png",
+        "selectedIconPath": "img/mySelect.png"
+      }
+    ]
+  }
+}

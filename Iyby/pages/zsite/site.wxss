@@ -1,0 +1,6 @@
+/* pages/site/site.wxss */
+
+.textbtn{
+    background-color: #FFFFFF;
+    margin-top: 20px;
+}
