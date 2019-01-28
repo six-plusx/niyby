@@ -10,15 +10,75 @@
     <view>
       <view class="book-list">
         <view class="book-image">
-          <image src="{{item.image}}" mode="aspectFit"></image>
+          <image src='../../img/1.png'></image>
         </view>
         <view class="book-info">
           <view class="book-info-style">
-            <view>书名:{{item.title}}</view>
-            <view>作者:{{item.author}}\n</view>
-            <view>价格:{{item.price}}\n</view>
-            <view>出版信息:{{item.publisher}}\n</view>
-            <view>可借数量:{{item.qty}}\n</view>
+            <view>书名:IOS应用安全攻防实战</view>
+            <view>作者:[美]约翰坦·死的扎斯克\n</view>
+            <view>价格:79.00\n</view>
+            <view>出版信息:电子工业出版社\n</view>
+            <view>可借数量:0\n</view>
+          </view>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="book-list">
+        <view class="book-image">
+          <image src='../../img/2.png'></image>
+        </view>
+        <view class="book-info">
+          <view class="book-info-style">
+            <view>书名:游戏机制</view>
+            <view>作者:[美]Ernest Adams\n</view>
+            <view>价格:89.00\n</view>
+            <view>出版信息:人民邮电出版社\n</view>
+            <view>可借数量:0\n</view>
+          </view>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="book-list">
+        <view class="book-image">
+          <image src='../../img/3.png'></image>
+        </view>
+        <view class="book-info">
+          <view class="book-info-style">
+            <view>书名:第一行代码</view>
+            <view>作者:郭霖\n</view>
+            <view>价格:79.00\n</view>
+            <view>出版信息:人民邮电出版社\n</view>
+            <view>可借数量:0\n</view>
+          </view>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="book-list">
+        <view class="book-image">
+          <image src='../../img/1.png'></image>
+        </view>
+        <view class="book-info">
+          <view class="book-info-style">
+            <view>书名:[HTML5 CSS3 jQuery Mobile]</view>
+            <view>作者:陈婉凌\n</view>
+            <view>价格:79.00\n</view>
+            <view>出版信息:清华大学出版社\n</view>
+            <view>可借数量:0\n</view>
+          </view>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="book-list">
+        <view class="book-image">
+          <image src='../../img/2.png'></image>
+        </view>
+        <view class="book-info">
+          <view class="book-info-style">
+            <view>书名:哈利波特</view>
+            <view>作者:【英】J·K·罗琳\n</view>
+            <view>价格:99.00\n</view>
+            <view>出版信息:电子工业出版社\n</view>
+            <view>可借数量:0\n</view>
           </view>
         </view>
       </view>
