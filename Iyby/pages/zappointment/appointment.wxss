@@ -19,6 +19,7 @@
 
 .search-bar {
   z-index: 1;
+  padding-bottom: 50px;
 }
 
 .search-bar button {
@@ -106,4 +107,13 @@
   top: 40rpx;
   left: 40rpx;
   z-index: 1;
+}
+
+.btnXq{
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 140rpx;
+  font-size: 30rpx;
+  color: #fbf9fe;
+  margin-left: 77%;
 }

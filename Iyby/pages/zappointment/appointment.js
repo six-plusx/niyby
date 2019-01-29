@@ -5,75 +5,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+   // carts: [], // 购物车列表
+    name:''
   },
 
-  //加载界面数据begin
-  onShow: function (options) {
-    var that = this;
-    wx.getStorage({
-      key: 'username',
-      success: function (res) {
-
-        wx.getStorage({
-          key: 'token',
-          success: function (data) {
-            wx.request({
-              url: 'http://localhost:49590/api/Zappointment/GetClassifications',
-              method: 'GET',
-              header: {
-                'content-type': 'application/json',
-                'Authorization': 'BasicAuth ' + data.data
-              },
-              success: function (res) {
-                console.log(res)
-                that.setData({
-                  hasList: true,
-                  carts: res.data
-                })
-              }
-            }),
-
-              //显示收货地址
-              wx.request({
-                url: 'http://localhost:55345/api/flower/GetAddress?username=' + res.data,
-                method: 'GET',
-                data: {},
-                header: {
-                  'content-type': 'application/json',
-                  'Authorization': 'BasicAuth ' + data.data
-                },
-                success: function (res) {
-                  console.log(res)
-                  that.setData({
-                    tempInfo: res.data,
-                  })
-                }
-              })
-          }
-        })
-      },
-      fail: function (res) { },
-      complete: function (res) { },
-    }),
-      this.getTotalPrice();
-  },
-
-  //输入查询信息
-  inputChange() {
-
+  // 详细地址
+  bindname: function (e) {
+    this.data.name = e.detail.value;
   },
 
   //查询
-  queryBooks: function () {
-
+  queryBooks: function (e) {
+    var that=this;
+    wx.request({
+      url: 'http://localhost:49590/api/Zappointment/GetSumBooksSelects',
+      data:{names:this.data.name},
+      method: 'GET',
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          hasList: true,
+          carts: res.data
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: 'http://localhost:49590/api/Zappointment/GetBooksSelects',
+      method: 'GET',
+      success: function (allres) {
+        console.log(allres)
+        that.setData({
+          hasList: true,
+          carts: allres.data
+        })
+      }
+    })
   },
 
   /**

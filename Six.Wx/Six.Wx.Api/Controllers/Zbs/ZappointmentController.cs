@@ -21,10 +21,10 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetClassifications")]
-        public IEnumerable<Classification> GetClassifications()
+        [ActionName("GetBooksSelects")]
+        public IEnumerable<BooksSelect> GetBooksSelects()
         {
-            var classificationlist = zappointment.GetClassifications();
+            var classificationlist = zappointment.GetBooksSelects();
             return classificationlist;
         }
 
@@ -33,11 +33,23 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetClassifications")]
-        public IEnumerable<Classification> GetClassifications(string name)
+        [ActionName("GetSumBooksSelects")]
+        public IEnumerable<BooksSelect> GetSumBooksSelects(string names)
         {
-            var classificationlist = zappointment.GetClassifications(name);
+            var classificationlist = zappointment.GetSumBooksSelects(names);
             return classificationlist;
         }
+
+        ///// <summary>
+        ///// 查询部分的图书信息
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpGet]
+        //[ActionName("GetOneBooksSelects")]
+        //public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
+        //{
+        //    var classificationlist = zappointment.GetOneBooksSelects(id);
+        //    return classificationlist;
+        //}
     }
 }

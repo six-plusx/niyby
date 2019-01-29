@@ -12,9 +12,9 @@
 
     <!--详细地址-->
     <view class="section">
-      <input bindinput="bindsite" placeholder="详细地址" class='textbox'/>
-      <input bindinput="bindperson" placeholder="联系人" class='textbox'/>
-      <input bindinput="bindphone" type="number" maxlength="11" placeholder="联系电话" class='textbox'/>
+      <input bindchange="bindsite" placeholder="详细地址" class='textbox'/>
+      <input bindchange="bindperson" placeholder="联系人" class='textbox'/>
+      <input bindchange="bindphone" type="number" maxlength="11" placeholder="联系电话" class='textbox'/>
       <view class='textbox'>设为默认地址<switch name="delivery_is_default" class='switchmr'/></view>
     </view>
 

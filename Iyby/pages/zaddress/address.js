@@ -20,31 +20,25 @@ Page({
   },
 
   // 详细地址
-  bindsite(e) {
-    this.setData({
-      inputsite: e.detail.value
-    })
+  bindsite:function(e) {
+    this.data.inputsite = e.detail.value;
   },
 
   // 联系人
   bindperson(e) {
-    this.setData({
-      inputperson: e.detail.value
-    })
+    this.data.inputperson=e.detail.value;
   },
 
   // 联系电话
   bindphone(e) {
-    this.setData({
-      inputphone: e.detail.value
-    })
+    this.data.inputphone=e.detail.value;
   },
 
   // 保存按钮
   bindbtn: function (e) {
-    if (this.inputsite == undefined) {
+    console.log("详细地址" + this.data.inputsite)
+    if (this.data.inputsite == '') {
       setTimeout(() => {
-        console.log("详细地址" + this.inputsite)
         this.setData(
           { popErrorMsg: "请输入详细地址" }
         );
@@ -53,9 +47,10 @@ Page({
       return;
     }
 
-    if (this.inputperson ==undefined) {
+    console.log("联系人：" + this.data.inputperson)
+    if (this.data.inputperson =='') {
       setTimeout(() => {
-        console.log("联系人：" + this.inputperson)
+        console.log("联系人：" + this.data.inputperson)
           this.setData(
             { popErrorMsg: "请输入联系人" }
           );
@@ -64,9 +59,9 @@ Page({
       return;
     }
 
-    if (this.inputphone == undefined) {
+    console.log("手机号：" + this.data.inputphone)
+    if (this.data.inputphone == '') {
       setTimeout(() => {
-        console.log("手机号：" + this.inputphone) 
         this.setData(
           { popErrorMsg: "请输入手机号码" }
         );
@@ -77,10 +72,9 @@ Page({
     }
     else {
       var reg = new RegExp('^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$');
-      var phoneVar = reg.test(this.inputphone);     // 得到的值为布尔型
-      if (phoneVar==true) {
+      var phoneVar = reg.test(this.data.inputphone);     // 得到的值为布尔型
+      if (phoneVar==false) {
         setTimeout(() => {
-          console.log("手机号格式不正确") 
           this.setData(
             { popErrorMsg: "手机号格式不正确" }
           );
@@ -89,8 +83,20 @@ Page({
         return;
       }
     }
-
     console.log('验证结束');
+
+    wx.showToast({
+      title: '成功',
+      icon: 'success',
+      duration: 1000
+    })
+
+    //1秒后跳转
+    setTimeout(function () {
+      wx.reLaunch({
+        url: '../zsite/site',
+      })
+    }, 1000)
   },
 
   ohShitfadeOut() {
