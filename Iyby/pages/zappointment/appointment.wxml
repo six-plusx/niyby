@@ -6,5 +6,21 @@
     <button type="primary" bindtap="queryBooks">查詢</button>
   </view>
 
-  
+  <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+        <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}" data-aid="{{item.ShopId}}" class="cart-pro-select" bindtap="selectList" />
+        <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" data-aid="{{item.ShopId}}" bindtap="selectList" />
+
+        <block wx:if="{{item.Images}}">
+          <image class="cart-thumb" src="http://localhost:55345/{{item.ImagesArr[0]}}"></image>
+        </block>
+        <text class="cart-pro-name">{{item.Name}}</text>
+        <text class="cart-pro-price">￥{{item.Price}}</text>
+        <view class="cart-count-box">
+          <text class="cart-count-down" bindtap="minusCount" data-index="{{index}}" data-id="{{item.ShopId}}">-</text>
+          <text class="cart-count-num" data-aid="{{item.Serial}}">{{item.ShopNum}}</text>
+          <text class="cart-count-add" bindtap="addCount" data-index="{{index}}" data-id="{{item.ShopId}}">+</text>
+        </view>
+        <text class="cart-del" bindtap="deleteList" data-index="{{index}}" data-id="{{item.ShopId}}">×</text>
+      </view>
+
 </view>

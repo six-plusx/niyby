@@ -10,6 +10,7 @@ using Six.Wx.Model;
 using Dapper;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.OracleClient;
 
 namespace Six.Wx.Repositoy.Zbs
 {
@@ -29,9 +30,9 @@ namespace Six.Wx.Repositoy.Zbs
         /// <returns></returns>
         public IEnumerable<Classification> GetClassifications()
         {
-            string sql = "";
+            string sql = "select * from loc";
             //链接数据库
-            using (IDbConnection conn = new SqlConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var classificationlist = conn.Query<Classification>(sql);
                 return classificationlist;
