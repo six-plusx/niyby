@@ -9,7 +9,7 @@ namespace Six.Wx.Model
     /// <summary>
     /// 分类表
     /// </summary>
-    public class classification
+    public class Classification
     {
         /// <summary>
         /// 分类id

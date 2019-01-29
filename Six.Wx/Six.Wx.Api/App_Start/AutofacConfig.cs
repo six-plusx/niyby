@@ -11,6 +11,8 @@ using Six.Wx.Repositoy;
 using Autofac.Integration.WebApi;
 using System.Web.Http;
 using Autofac.Integration.Mvc;
+using Six.Wx.Repositoy.Zbs;
+using Six.Wx.IRepositoy.Zbs;
 
 namespace Six.Wx.Api
 {
@@ -40,7 +42,7 @@ namespace Six.Wx.Api
         /// <param name="builder"></param>
         public static void SetupResolveRules(ContainerBuilder container)
         {
-           // container.RegisterType<StudentRespository>().As<IStudentRespository>();
+            container.RegisterType<Zappointment>().As<IZappointment>();
         }
     }
 }

@@ -1,2 +1,10 @@
 <!--pages/appointment/appointment.wxml-->
-<text>预约的图书</text>
+<view class="content" scroll-y="true">
+  <view class="search-bar">
+    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+    <input placeholder="请输入书名" bindchange="inputChange"/>
+    <button type="primary" bindtap="queryBooks">查詢</button>
+  </view>
+
+  
+</view>

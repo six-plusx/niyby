@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\..\..\技能资料\dapper\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -42,9 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Zbs\BookRepositoy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Zbs\Class1.cs" />
+    <Compile Include="Zbs\Zappointment.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Six.Wx.IRepositoy\Six.Wx.IRepositoy.csproj">
