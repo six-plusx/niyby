@@ -1,5 +1,7 @@
 <!--pages/qaddbooks/qaddbooks.wxml-->
  <form>
+ <view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view> 
+
         <view class="weui-cells__title">图书基本信息:</view>
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_input">
@@ -7,7 +9,7 @@
                     <view class="weui-label">书名:</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入书名" />
+                    <input class="weui-input" placeholder="请输入书名" bindchange='bookname'/>
                 </view>
             </view>
 
@@ -16,7 +18,7 @@
                     <view class="weui-label">作者:</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入作者" />
+                    <input class="weui-input" placeholder="请输入作者" bindchange='author'/>
                 </view>
             </view>
 
@@ -25,7 +27,7 @@
                     <view class="weui-label">价格:</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入价格" />
+                    <input class="weui-input" placeholder="请输入价格" bindchange='price'/>
                 </view>
             </view>
 
@@ -34,7 +36,7 @@
                     <view class="weui-label">出版社:</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入出版社" />
+                    <input class="weui-input" placeholder="请输入出版社" bindchange='message'/>
                 </view>
             </view>
 
@@ -43,7 +45,7 @@
                     <view class="weui-label">图书图片:</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="" type="picture"/>
+                  
                 </view>
             </view>
 
@@ -52,7 +54,7 @@
                     <view class="weui-label">录入数量:</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入录入数量" />
+                    <input class="weui-input" placeholder="请输入录入数量" bindchange='num'/>
                 </view>
             </view>
 
@@ -61,7 +63,7 @@
                     <view class="weui-label">图书目录:</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入图书目录" />
+                    <input class="weui-input" placeholder="请输入图书目录" bindchange='catalogue'/>
                 </view>
             </view>
 
@@ -70,15 +72,11 @@
                     <view class="weui-label">图书状态:</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入图书状态" />
+                    <input class="weui-input" placeholder="请输入图书状态" bindchange='state'/>
                 </view>
             </view>
-
-            <!--<view class="weui-btn-area">
-                <button class="weui-btn" type="primary" bindtap="addBook">开始录入</button>
-            </view>-->
-
-
-
         </view>
+       <view class="weui-btn-area">       
+ <button class="weui-btn" type="primary" bindtap="addBook">确定录入</button>
+    </view>
     </form>

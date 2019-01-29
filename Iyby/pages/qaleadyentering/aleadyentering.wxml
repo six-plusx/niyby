@@ -1,2 +1,8 @@
 <!--pages/aleadyentering/aleadyentering.wxml-->
-<text>pages/aleadyentering/aleadyentering.wxml</text>
+   <view class="search-bar">
+    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+    <input placeholder="请输入书名" bindchange="inputChange"/>
+    <button type="primary" class='search-bar-btn'>查詢</button>
+  </view>  
+
+

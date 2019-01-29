@@ -1,1 +1,32 @@
 /* pages/aleadyentering/aleadyentering.wxss */
+
+.search-bar {
+  z-index: 1;
+}
+
+.search-bar button{
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 140rpx;
+  position: fixed;
+  top: 20rpx;
+  left: 585rpx;
+  font-size: 30rpx;
+  color: #fbf9fe;
+}
+
+.search-bar input {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 480rpx;
+  height: 70rpx;
+  margin-top: 20rpx;
+  margin-bottom: 15rpx;
+  position: fixed;
+  top: 0;
+  left: 25rpx;
+  padding-left: 70rpx;
+}
+
+
+
