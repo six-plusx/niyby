@@ -173,6 +173,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\Zbs\ZappointmentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -268,6 +269,10 @@
     <ProjectReference Include="..\Six.Wx.IRepositoy\Six.Wx.IRepositoy.csproj">
       <Project>{15af843c-2776-4681-9d9c-8f8f2e78d517}</Project>
       <Name>Six.Wx.IRepositoy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Six.Wx.Model\Six.Wx.Model.csproj">
+      <Project>{8937c8c5-12e3-4246-951f-d22b24941f2a}</Project>
+      <Name>Six.Wx.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Six.Wx.Repositoy\Six.Wx.Repositoy.csproj">
       <Project>{67bc37f9-39dc-4555-adc0-65198605efe0}</Project>
