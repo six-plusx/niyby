@@ -42,49 +42,52 @@ Page({
 
   // 保存按钮
   bindbtn: function (e) {
+    if (this.inputsite == undefined) {
+      setTimeout(() => {
+        console.log("详细地址" + this.inputsite)
+        this.setData(
+          { popErrorMsg: "请输入详细地址" }
+        );
+        this.ohShitfadeOut();
+      }, 100)
+      return;
+    }
+
     if (this.inputperson ==undefined) {
       setTimeout(() => {
+        console.log("联系人：" + this.inputperson)
           this.setData(
-            { popErrorMsg: "联系人不能为空" }
+            { popErrorMsg: "请输入联系人" }
           );
           this.ohShitfadeOut();
-          return;
       }, 100)
+      return;
     }
 
     if (this.inputphone == undefined) {
       setTimeout(() => {
+        console.log("手机号：" + this.inputphone) 
         this.setData(
           { popErrorMsg: "请输入手机号码" }
         );
         this.ohShitfadeOut();
         return;
       }, 100)
+      return;
     }
     else {
       var reg = new RegExp('^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$');
       var phoneVar = reg.test(this.inputphone);     // 得到的值为布尔型
       if (phoneVar==true) {
         setTimeout(() => {
+          console.log("手机号格式不正确") 
           this.setData(
             { popErrorMsg: "手机号格式不正确" }
           );
           this.ohShitfadeOut();
-          return;
         }, 100)
         return;
       }
-    }
-
-    if (this.inputsite == undefined) {
-      setTimeout(() => {
-        this.setData(
-          { popErrorMsg: "请输入详细地址" }
-        );
-        this.ohShitfadeOut();
-        return;
-      }, 100)
-      return;
     }
 
     console.log('验证结束');
