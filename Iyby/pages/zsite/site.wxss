@@ -4,3 +4,13 @@
     background-color: #FFFFFF;
     margin-top: 20px;
 }
+
+/* 列表样式 */
+.cart-list1{
+  background-color: #fff;
+  margin-top: 15px;
+}
+
+.information{
+  margin-left: 20px;
+}

@@ -12,8 +12,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var id=parseInt(options.id);
-    console.log(id);
+    var id = parseInt(options.id);
+    console.log("传递进来的(要查询的预约图书)ID：" + id);
     var that=this;
     wx.request({
       url: 'http://localhost:49590/api/Zappointment/GetOneBooksSelects?id='+id,

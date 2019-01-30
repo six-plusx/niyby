@@ -9,7 +9,6 @@ using Six.Wx.IRepositoy.Zbs;
 using Six.Wx.Model;
 using Dapper;
 using System.Data;
-using System.Data.SqlClient;
 using System.Data.OracleClient;
 
 namespace Six.Wx.Repositoy.Zbs
