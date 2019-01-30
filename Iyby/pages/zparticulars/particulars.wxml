@@ -1,10 +1,4 @@
-<!--pages/appointment/appointment.wxml-->
-  <view class="search-bar">
-    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-    <input placeholder="请输入书名" bindchange="bindname"/>
-    <button type="primary" bindtap="queryBooks">查詢</button>
-  </view>
-
+<!--pages/zparticulars/particulars.wxml-->
   <view class="cart-list1" wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
         <text class="information">书名：{{item.BooksName}}\n</text>
         <text class="information">作者：{{item.Author}}\n</text>

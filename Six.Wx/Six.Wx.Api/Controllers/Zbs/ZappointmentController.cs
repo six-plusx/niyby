@@ -40,16 +40,16 @@ namespace Six.Wx.Api.Controllers.Zbs
             return classificationlist;
         }
 
-        ///// <summary>
-        ///// 查询部分的图书信息
-        ///// </summary>
-        ///// <returns></returns>
-        //[HttpGet]
-        //[ActionName("GetOneBooksSelects")]
-        //public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
-        //{
-        //    var classificationlist = zappointment.GetOneBooksSelects(id);
-        //    return classificationlist;
-        //}
+        /// <summary>
+        /// 查询一条图书信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("GetOneBooksSelects")]
+        public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
+        {
+            var classificationlist = zappointment.GetOneBooksSelects(id);
+            return classificationlist;
+        }
     }
 }

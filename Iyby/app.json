@@ -10,7 +10,8 @@
     "pages/qstartentering/startentering",
     "pages/qaleadyentering/aleadyentering",
     "pages/zsite/site",
-    "pages/qaddbooks/qaddbooks"
+    "pages/qaddbooks/qaddbooks",
+    "pages/zparticulars/particulars"
   ],
   "window": {
     "backgroundTextStyle": "light",

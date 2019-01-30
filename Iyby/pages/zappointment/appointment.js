@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-   // carts: [], // 购物车列表
     name:''
   },
 
@@ -22,12 +21,18 @@ Page({
       data:{names:this.data.name},
       method: 'GET',
       success: function (res) {
-        console.log(res)
         that.setData({
           hasList: true,
           carts: res.data
         })
       }
+    })
+  }, 
+  
+  navigatordetails: function(e){
+    var id = e.currentTarget.dataset.aid;//获取显示界面的Id值
+    wx.navigateTo({
+      url: '../zparticulars/particulars?id=' + e.currentTarget.dataset.aid
     })
   },
 
@@ -40,7 +45,6 @@ Page({
       url: 'http://localhost:49590/api/Zappointment/GetBooksSelects',
       method: 'GET',
       success: function (allres) {
-        console.log(allres)
         that.setData({
           hasList: true,
           carts: allres.data
