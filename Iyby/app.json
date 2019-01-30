@@ -11,7 +11,8 @@
     "pages/qaleadyentering/aleadyentering",
     "pages/zsite/site",
     "pages/qaddbooks/qaddbooks",
-    "pages/zparticulars/particulars"
+    "pages/zparticulars/particulars",
+     "pages/qaddbooks/qaddbooks"
   ],
   "window": {
     "backgroundTextStyle": "light",
