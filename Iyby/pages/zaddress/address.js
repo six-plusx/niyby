@@ -8,7 +8,8 @@ Page({
     region: ['北京市', '北京市', '东城区'],//省市区，默认值
     inputsite: '',//地址
     inputperson: '',//联系人
-    inputphone: ''//联系电话
+    inputphone: '',//联系电话
+    popErrorMsg:''
   },
 
   // 省市区--显示选择的路径
@@ -40,41 +41,63 @@ Page({
   },
 
   // 保存按钮
-  bindbtn: function () {
-    console.log('开始保存');
-    if (inputperson == '') {
-      wx.showToast({
-        title: '请输入联系人',
-        duration: 2000
-      })
+  bindbtn: function (e) {
+    if (this.inputsite == undefined) {
+      setTimeout(() => {
+        console.log("详细地址" + this.inputsite)
+        this.setData(
+          { popErrorMsg: "请输入详细地址" }
+        );
+        this.ohShitfadeOut();
+      }, 100)
       return;
     }
-    if (inputphone == '') {
-      wx.showToast({
-        title: '请输入手机号码',
-        duration: 2000
-      })
+
+    if (this.inputperson ==undefined) {
+      setTimeout(() => {
+        console.log("联系人：" + this.inputperson)
+          this.setData(
+            { popErrorMsg: "请输入联系人" }
+          );
+          this.ohShitfadeOut();
+      }, 100)
       return;
-    } 
+    }
+
+    if (this.inputphone == undefined) {
+      setTimeout(() => {
+        console.log("手机号：" + this.inputphone) 
+        this.setData(
+          { popErrorMsg: "请输入手机号码" }
+        );
+        this.ohShitfadeOut();
+        return;
+      }, 100)
+      return;
+    }
     else {
       var reg = new RegExp('^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$');
-      var phoneVar = reg.test(inputphone);     // 得到的值为布尔型
-      if (phoneVar) {
-        wx.showToast({
-          title: '手机格式不对',
-          duration: 2000
-        })
+      var phoneVar = reg.test(this.inputphone);     // 得到的值为布尔型
+      if (phoneVar==true) {
+        setTimeout(() => {
+          console.log("手机号格式不正确") 
+          this.setData(
+            { popErrorMsg: "手机号格式不正确" }
+          );
+          this.ohShitfadeOut();
+        }, 100)
         return;
       }
     }
 
-    if (inputsite == '') {
-      wx.showToast({
-        title: '请输入详细地址',
-        duration: 2000
-      })
-      return;
-    }
+    console.log('验证结束');
+  },
+
+  ohShitfadeOut() {
+    var fadeOutTimeout = setTimeout(() => {
+      this.setData({ popErrorMsg: '' });
+      clearTimeout(fadeOutTimeout);
+    }, 3000);
   },
 
   /**

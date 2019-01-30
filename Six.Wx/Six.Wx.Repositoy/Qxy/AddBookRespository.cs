@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Six.Wx.IRepositoy.Zbs
+namespace Six.Wx.Repositoy.Qxy
 {
     /// <summary>
-    /// 接口层-----图书
+    /// 录入图书的实现层
     /// </summary>
-    public class IBookRepositoy
+    public class AddBookRespository
     {
     }
 }

@@ -2,6 +2,8 @@
 
 <!--省市区的显示-->
 <view class="section">
+    <view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view> 
+
     <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
       <view class="picker">
         当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
