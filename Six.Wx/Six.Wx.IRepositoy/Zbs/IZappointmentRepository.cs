@@ -11,7 +11,7 @@ namespace Six.Wx.IRepositoy.Zbs
     /// <summary>
     /// 图书查询----预约的图书
     /// </summary>
-    public interface IZappointment
+    public interface IZappointmentRespository
     {
         /// <summary>
         /// 查询所有的图书信息

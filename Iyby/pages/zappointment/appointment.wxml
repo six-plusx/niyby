@@ -10,5 +10,5 @@
         <text class="information">作者：{{item.Author}}\n</text>
         <text class="information">价格：￥{{item.Price}}\n</text>
         <text class="information">出版社信息：{{item.Message}}\n</text>
-        <text class="information">可借数量：{{item.LendNum}}</text>
+        <text class="information">预约的数量：{{item.LendNum}}</text>
   </view>
