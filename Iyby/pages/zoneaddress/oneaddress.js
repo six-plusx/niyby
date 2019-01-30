@@ -1,4 +1,4 @@
-// pages/site/site.js
+// pages/zoneaddress/oneaddress.js
 Page({
 
   /**
@@ -8,22 +8,16 @@ Page({
 
   },
 
-  // 详情
-  navigatordetails: function (e) {
-    var id = e.currentTarget.dataset.aid;//获取显示界面的Id值
-    wx.navigateTo({
-      url: '../zoneaddress/oneaddress?id=' + e.currentTarget.dataset.aid
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var id = parseInt(options.id);
+    console.log("传递进来的(要查询的收货地址)ID："+id);
     var that = this;
     wx.request({
-      url: 'http://localhost:49590/api/ZAddress/GetAllAddresses',
-      method: 'GET',
+      url: 'http://localhost:49590/api/ZAddress/GetOneAddresses?id=' + id,
+      method: 'get',
       success: function (res) {
         that.setData({
           hasList: true,

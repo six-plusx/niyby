@@ -19,7 +19,7 @@
 
 .search-bar {
   z-index: 1;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
 
 .search-bar button {
@@ -139,5 +139,5 @@
 /* 列表样式 */
 .cart-list1{
   background-color: #fff;
-  margin-bottom: 15px;
+  margin-top: 15px;
 }

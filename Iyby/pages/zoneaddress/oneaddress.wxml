@@ -1,0 +1,7 @@
+<!--pages/zoneaddress/oneaddress.wxml-->
+  <view class="cart-list1" wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
+        <text class="information">收货人：{{item.Consignee}}\n</text>
+        <text class="information">联系电话：{{item.Photo}}\n</text>
+        <text class="information">所在地区：{{item.Area}}\n</text>
+        <text class="information">详细地址：{{item.Loction}}</text>
+  </view>

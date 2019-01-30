@@ -42,7 +42,8 @@ namespace Six.Wx.Api
         /// <param name="builder"></param>
         public static void SetupResolveRules(ContainerBuilder container)
         {
-            container.RegisterType<ZappointmentRespository>().As<IZappointmentRespository>();
+            container.RegisterType<ZappointmentRepository>().As<IZappointmentRepository>();
+            container.RegisterType<ZAddressRepository>().As<IZAddressRepository>();
         }
     }
 }

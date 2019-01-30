@@ -14,7 +14,7 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// <summary>
         /// 属性注入
         /// </summary>
-        public IZappointmentRespository zappointment { get; set; }
+        public IZappointmentRepository zappointment { get; set; }
 
         /// <summary>
         /// 查询所有的图书信息
