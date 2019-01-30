@@ -1,12 +1,13 @@
 <!--pages/zparticulars/particulars.wxml-->
   <view class="cart-list1" wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
-        <text class="information">书名：{{item.BooksName}}\n</text>
-        <text class="information">作者：{{item.Author}}\n</text>
-        <text class="information">价格：￥{{item.Price}}\n</text>
-        <text class="information">出版社信息：{{item.Message}}\n</text>
-        <text class="information">预约的详情：{{item.LendNum}}\n</text>
-        <text class="information">图书状态：{{item.State}}\n</text>
-        <text class="information">图书内容：{{item.BooksContent}}\n</text>
-        <text class="information">作者简介：{{item.AuthorIntro}}\n</text>
-        <text class="information">目录：{{item.Catalogue}}</text>
+      <text class="inforleft">书名：</text><text class="inforright">{{item.BooksName}}\n</text>
+      <text class="inforleft">作者：</text><text class="inforright">{{item.Author}}\n</text>
+      <text class="inforleft">价格：￥</text><text class="inforright">{{item.Price}}\n</text>
+      <text class="inforleft">出版社信息：</text><text class="inforright">{{item.Message}}\n</text>
+      <text class="inforleft">预约的数量：</text><text class="inforright">{{item.LendNum}}\n</text>
+      <text class="inforleft">图书状态：</text><text class="inforright">{{item.State}}\n</text>
+      <text class="inforleft">图书内容：</text><text class="inforright">{{item.BooksContent}}\n</text>
+      <text class="inforleft">作者简介：</text><text class="inforright">{{item.AuthorIntro}}\n</text>
+      <text class="inforleft">目录：</text><text class="inforright">{{item.Catalogue}}</text>
+
   </view>

@@ -9,8 +9,5 @@
 <view class="weui-cells weui-cells_after-title">
     <navigator url="../zaddress/address">
       <button class="textbtn" hover-class="other-button-hover">新增收货地址</button>
-      <view class="footer">
-        <button class="footer-add" formType="delivery_is_default" bindtap="bindbtn">保存</button>
-      </view>
     </navigator>
 </view>
