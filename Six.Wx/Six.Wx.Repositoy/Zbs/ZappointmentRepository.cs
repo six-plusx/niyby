@@ -17,7 +17,7 @@ namespace Six.Wx.Repositoy.Zbs
     /// <summary>
     /// 已经预购的图书
     /// </summary>
-    public class Zappointment : IZappointment
+    public class ZappointmentRepository : IZappointmentRepository
     {
         /// <summary>
         /// 连接字符串
