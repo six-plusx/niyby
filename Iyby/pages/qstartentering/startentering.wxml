@@ -1,2 +1,23 @@
 <!--pages/startentering/startentering.wxml-->
-<text>pages/startentering/startentering.wxml</text>
+<view class="page__bd page__bd_spacing">
+    <view class="weui-cells__title">录入方式</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+            <view class="weui-cell__bd">扫码录入:</view>
+            <view class="weui-cell__ft">
+                <switch checked bindchange="screenInput" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_switch">
+            <view class="weui-cell__bd">连续录入:</view>
+            <view class="weui-cell__ft">
+                <switch checked />
+            </view>
+        </view>
+    </view>
+    <view class="weui-btn-area">
+       <navigator url="../qaddbooks/qaddbooks">    
+ <button class="weui-btn" type="primary" bindtap="addBook">开始录入</button>
+ </navigator>
+    </view>
+</view>

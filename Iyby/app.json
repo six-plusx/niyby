@@ -1,17 +1,17 @@
 {
   "pages": [
     "pages/zindex/index",
+    "pages/zappointment/appointment",
+    "pages/zaddress/address",
+    "pages/zsite/site",
+    "pages/zparticulars/particulars",
     "pages/fshow/show",
     "pages/logs/logs",
     "pages/preorder/preorder",
-    "pages/zappointment/appointment",
-    "pages/zaddress/address",
     "pages/sbuy/buy",
-    "pages/qstartentering/startentering",
-    "pages/qaleadyentering/aleadyentering",
-    "pages/zsite/site",
     "pages/qaddbooks/qaddbooks",
-    "pages/zparticulars/particulars"
+    "pages/qstartentering/startentering",
+    "pages/qaleadyentering/aleadyentering"
   ],
   "window": {
     "backgroundTextStyle": "light",

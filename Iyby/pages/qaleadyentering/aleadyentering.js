@@ -1,4 +1,4 @@
-// pages/aleadyentering/aleadyentering.js
+// pages/qaleadyentering/aleadyentering.js
 Page({
 
   /**
