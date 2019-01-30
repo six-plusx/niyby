@@ -15,18 +15,18 @@ namespace Six.Wx.Api.Controllers.FDY
         /// <summary>
         /// 属性注入
         /// </summary>
-        public ISearch searchs { get; set; }
+        //public ISearch searchs { get; set; }
 
         /// <summary>
         /// 查询所有的图书信息
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        [ActionName("GetBooksSelects")]
-        public IEnumerable<BooksSelect> GetBooksSelects()
-        {
-            var books = searchs.GetBooksSelects();
-            return books;
-        }
+        //[HttpGet]
+        //[ActionName("GetBooksSelects")]
+        //public IEnumerable<BooksSelect> GetBooksSelects()
+        //{
+        //    var books = searchs.GetBooksSelects();
+        //    return books;
+        //}
     }
 }
