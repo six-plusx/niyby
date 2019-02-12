@@ -11,7 +11,7 @@
 		"newFeature": true,
 		"autoAudits": false
 	},
-	"compileType": "miniprogram",
+	"compileType": "plugin",
 	"libVersion": "2.5.1",
 	"appid": "wx23c6e39841337a5b",
 	"projectname": "Iyby",
