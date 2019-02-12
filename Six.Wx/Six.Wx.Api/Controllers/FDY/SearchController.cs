@@ -15,18 +15,42 @@ namespace Six.Wx.Api.Controllers.FDY
         /// <summary>
         /// 属性注入
         /// </summary>
-        //public ISearch searchs { get; set; }
+        public ISearchRepository searchs { get; set; }
 
         /// <summary>
         /// 查询所有的图书信息
         /// </summary>
         /// <returns></returns>
-        //[HttpGet]
-        //[ActionName("GetBooksSelects")]
-        //public IEnumerable<BooksSelect> GetBooksSelects()
-        //{
-        //    var books = searchs.GetBooksSelects();
-        //    return books;
-        //}
+        [HttpGet]
+        [ActionName("GetBooksSelects")]
+        public IEnumerable<BooksSelect> GetBooksSelects()
+        {
+            var books = searchs.GetBooksSelects();
+            return books;
+        }
+
+        /// <summary>
+        /// 查询部分的图书信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("GetSumBooksSelects")]
+        public IEnumerable<BooksSelect> GetSumBooksSelects(string names)
+        {
+            var classificationlist = searchs.GetSumBooksSelects(names);
+            return classificationlist;
+        }
+
+        /// <summary>
+        /// 查询一条图书信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("GetOneBooksSelects")]
+        public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
+        {
+            var classificationlist = searchs.GetOneBooksSelects(id);
+            return classificationlist;
+        }
     }
 }
