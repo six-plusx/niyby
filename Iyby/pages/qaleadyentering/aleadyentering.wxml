@@ -1,2 +1,6 @@
 <!--pages/qaleadyentering/aleadyentering.wxml-->
-<text>pages/qaleadyentering/aleadyentering.wxml</text>
+<view class="search-bar">
+    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+    <input placeholder="请输入书名" bindchange="inputChange"/>
+    <button type="primary" bindtap="queryBooks">查詢</button>
+  </view>

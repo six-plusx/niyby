@@ -42,6 +42,12 @@ namespace Six.Wx.Model
         public string LendNum { get; set; }
 
         /// <summary>
+        /// 录入数量
+        /// </summary>
+
+        public string EnterNum { get; set; }
+
+        /// <summary>
         /// 图书状态
         /// </summary>
         public int State { get; set; }

@@ -40,15 +40,6 @@
                 </view>
             </view>
 
-            <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                    <view class="weui-label">图书图片:</view>
-                </view>
-                <view class="weui-cell__bd">
-                  
-                </view>
-            </view>
-
              <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
                     <view class="weui-label">录入数量:</view>
