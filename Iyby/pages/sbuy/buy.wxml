@@ -1,48 +1,26 @@
 <!--pages/buy/buy.wxml-->
-<text>图书管理系统</text>
-<view class='content' wx:if="{{isloading}}">
-    <view class='book-content' >
-        <view>
-            <view class="book-list">
-                <view class="book-image">
-                      <image src="{{}}" mode=""></image>
-                </view>
-                <view class="book-info">
-                    <view class="book-info-style">
-                        <view>书名：{{bookMsg.title}}</view>
-                        <view>作者：{{bookMsg.title}}\n</view>
-                        <view>价格：{{bookMsg.title}}\n</view>
-                        <view>出版信息：{{bookMsg.title}}\n</view>
-                        <view wx:if="{{!showAddBook}}">可借数量：{{bookMsg.title}}\n</view>
-                        <view class="add-book-container" wx:if="{{showAddBook}}">
-                        <label>录入数量：</label>
-                        <input class='add-book-qty' value='{addBookQty}' bindchange='inputChange'></input>
-                        </view>
-                    </view>
-                </view>
-            </view>
+<view class="content" scroll-y="true">
+  <view class="search-bar">
+    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+    <input placeholder="请输入书名" bindchange="inputChange"/>
+    <button type="primary" bindtap="queryBooks">查詢</button>
+  </view>
+
+  <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+        <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}" data-aid="{{item.ShopId}}" class="cart-pro-select" bindtap="selectList" />
+        <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" data-aid="{{item.ShopId}}" bindtap="selectList" />
+
+        <block wx:if="{{item.Images}}">
+          <image class="cart-thumb" src="http://localhost:55345/{{item.ImagesArr[0]}}"></image>
+        </block>
+        <text class="cart-pro-name">{{item.Name}}</text>
+        <text class="cart-pro-price">￥{{item.Price}}</text>
+        <view class="cart-count-box">
+          <text class="cart-count-down" bindtap="minusCount" data-index="{{index}}" data-id="{{item.ShopId}}">-</text>
+          <text class="cart-count-num" data-aid="{{item.Serial}}">{{item.ShopNum}}</text>
+          <text class="cart-count-add" bindtap="addCount" data-index="{{index}}" data-id="{{item.ShopId}}">+</text>
         </view>
-    </view>
-    <view class="space-line-30"></view>
-    <scroll-view scroll-y="true" class="scroll-content" style="height:{{windowHeight*0.66}}px">
-        <view class="book-intro">
-            <text class="book-title">内容推荐</text>
-            <text class="book-msg">{{bookMsg.summary}}</text>
-        </view>
-        <view class="space-line-30"></view>
-        <view class="book-intro">
-            <text class="book-title">作者简介</text>
-            <text class="book-msg">{{bookMsg.author_intro}}</text>
-        </view>
-        <view class="space-line-30"></view>
-        <view class="book-intro">
-            <text class="book-title">目录</text>
-            <text class="book-msg">{{bookMsg.catalog}}</text>
-        </view>
-         <view class="btn-area">
-            <button type="primary" size="default" wx:if="{{showBorrowBtn}}" bindtap="borrowBook">借阅</button>
-            <button type="primary" size="default" wx:if="{{showBookBtn}}">预约</button>
-            <button type="primary" size="default" wx:if="{{showAddBook}}" bindtap="addBook">录入</button>
-        </view>
-    </scroll-view>
+        <text class="cart-del" bindtap="deleteList" data-index="{{index}}" data-id="{{item.ShopId}}">×</text>
+      </view>
+
 </view>
