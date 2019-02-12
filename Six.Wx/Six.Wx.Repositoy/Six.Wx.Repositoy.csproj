@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fdy\SearchRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Zbs\Zappointment.cs" />
+    <Compile Include="Zbs\ZAddressRepository.cs" />
+    <Compile Include="Zbs\ZappointmentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Six.Wx.IRepositoy\Six.Wx.IRepositoy.csproj">
@@ -62,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dq\" />
-    <Folder Include="Fdy\" />
     <Folder Include="Qxy\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

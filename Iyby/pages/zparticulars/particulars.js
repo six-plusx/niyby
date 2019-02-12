@@ -1,57 +1,32 @@
-// pages/show/show.js
+// pages/zparticulars/particulars.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name: ''
-  },
 
-  // 详细地址
-  bindname: function (e) {
-    this.data.name = e.detail.value;
-  },
-
-  //查询
-  queryBooks: function (e) {
-    var that = this;
-    wx.request({
-      url: 'http://localhost:49590/api/Search/GetSumBooksSelects',
-      data: { names: this.data.name },
-      method: 'GET',
-      success: function (res) {
-        that.setData({
-          hasList: true,
-          carts: res.data
-        })
-      }
-    })
-  },
-
-  navigatordetails: function (e) {
-    var id = e.currentTarget.dataset.aid;//获取显示界面的Id值
-    wx.navigateTo({
-      url: '../zparticulars/particulars?id=' + e.currentTarget.dataset.aid
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
+    var id = parseInt(options.id);
+    console.log("传递进来的(要查询的预约图书)ID：" + id);
+    var that=this;
     wx.request({
-      url: 'http://localhost:49590/api/Search/GetBooksSelects',
-      method: 'GET',
-      success: function (allres) {
+      url: 'http://localhost:49590/api/Zappointment/GetOneBooksSelects?id='+id,
+      method:'get',
+      success:function(res){
         that.setData({
-          hasList: true,
-          carts: allres.data
+          hasList:true,
+          carts:res.data
         })
       }
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,26 +1,14 @@
 <!--pages/appointment/appointment.wxml-->
-<view class="content" scroll-y="true">
   <view class="search-bar">
     <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-    <input placeholder="请输入书名" bindchange="inputChange"/>
+    <input placeholder="请输入书名" bindchange="bindname"/>
     <button type="primary" bindtap="queryBooks">查詢</button>
   </view>
 
-  <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
-        <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}" data-aid="{{item.ShopId}}" class="cart-pro-select" bindtap="selectList" />
-        <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" data-aid="{{item.ShopId}}" bindtap="selectList" />
-
-        <block wx:if="{{item.Images}}">
-          <image class="cart-thumb" src="http://localhost:55345/{{item.ImagesArr[0]}}"></image>
-        </block>
-        <text class="cart-pro-name">{{item.Name}}</text>
-        <text class="cart-pro-price">￥{{item.Price}}</text>
-        <view class="cart-count-box">
-          <text class="cart-count-down" bindtap="minusCount" data-index="{{index}}" data-id="{{item.ShopId}}">-</text>
-          <text class="cart-count-num" data-aid="{{item.Serial}}">{{item.ShopNum}}</text>
-          <text class="cart-count-add" bindtap="addCount" data-index="{{index}}" data-id="{{item.ShopId}}">+</text>
-        </view>
-        <text class="cart-del" bindtap="deleteList" data-index="{{index}}" data-id="{{item.ShopId}}">×</text>
-      </view>
-
-</view>
+  <view class="cart-list1" wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
+        <text class="information">书名：{{item.BooksName}}\n</text>
+        <text class="information">作者：{{item.Author}}\n</text>
+        <text class="information">价格：￥{{item.Price}}\n</text>
+        <text class="information">出版社信息：{{item.Message}}\n</text>
+        <text class="information">预约的数量：{{item.LendNum}}</text>
+  </view>

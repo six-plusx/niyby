@@ -1,15 +1,15 @@
-// pages/address/address.js
+// pages/zoneaddress/oneaddress.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    region: ['北京市', '北京市', '东城区'],//省市区，默认值
+    region: ['', '', ''],//省市区，默认值
     inputsite: '',//地址
     inputperson: '',//联系人
     inputphone: '',//联系电话
-    popErrorMsg:''
+    popErrorMsg: ''
   },
 
   // 省市区--显示选择的路径
@@ -20,18 +20,18 @@ Page({
   },
 
   // 详细地址
-  bindsite:function(e) {
+  bindsite: function (e) {
     this.data.inputsite = e.detail.value;
   },
 
   // 联系人
   bindperson(e) {
-    this.data.inputperson=e.detail.value;
+    this.data.inputperson = e.detail.value;
   },
 
   // 联系电话
   bindphone(e) {
-    this.data.inputphone=e.detail.value;
+    this.data.inputphone = e.detail.value;
   },
 
   // 保存按钮
@@ -40,7 +40,7 @@ Page({
     if (this.data.inputsite == '') {
       setTimeout(() => {
         this.setData(
-          { popErrorMsg: "请输入详细地址" }
+          { popErrorMsg: "地址未修改 " }
         );
         this.ohShitfadeOut();
       }, 100)
@@ -48,13 +48,13 @@ Page({
     }
 
     console.log("联系人：" + this.data.inputperson)
-    if (this.data.inputperson =='') {
+    if (this.data.inputperson == '') {
       setTimeout(() => {
         console.log("联系人：" + this.data.inputperson)
-          this.setData(
-            { popErrorMsg: "请输入联系人" }
-          );
-          this.ohShitfadeOut();
+        this.setData(
+          { popErrorMsg: "请输入联系人" }
+        );
+        this.ohShitfadeOut();
       }, 100)
       return;
     }
@@ -73,7 +73,7 @@ Page({
     else {
       var reg = new RegExp('^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$');
       var phoneVar = reg.test(this.data.inputphone);     // 得到的值为布尔型
-      if (phoneVar==false) {
+      if (phoneVar == false) {
         setTimeout(() => {
           this.setData(
             { popErrorMsg: "手机号格式不正确" }
@@ -110,7 +110,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var id = parseInt(options.id);
+    console.log("传递进来的(要查询的收货地址)ID："+id);
+    var that = this;
+    wx.request({
+      url: 'http://localhost:49590/api/ZAddress/GetOneAddresses?id=' + id,
+      method: 'get',
+      success: function (res) {
+        that.setData({
+          hasList: true,
+          carts: res.data
+        })
+      }
+    })
   },
 
   /**

@@ -8,11 +8,29 @@ Page({
 
   },
 
+  // 详情
+  navigatordetails: function (e) {
+    var id = e.currentTarget.dataset.aid;//获取显示界面的Id值
+    wx.navigateTo({
+      url: '../zoneaddress/oneaddress?id=' + e.currentTarget.dataset.aid
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: 'http://localhost:49590/api/ZAddress/GetAllAddresses',
+      method: 'GET',
+      success: function (res) {
+        that.setData({
+          hasList: true,
+          carts: res.data
+        })
+      }
+    })
   },
 
   /**

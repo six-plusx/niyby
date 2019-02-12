@@ -5,18 +5,15 @@ using System.Web.Http;
 
 namespace Six.Wx.Api
 {
-    public static class WebApiConfig
+    public static class WebApiConfig2
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API 配置和服务
-
-            // Web API 路由
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{action}/{id}",
+                routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }

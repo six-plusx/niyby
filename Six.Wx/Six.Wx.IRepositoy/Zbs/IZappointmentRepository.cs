@@ -11,18 +11,24 @@ namespace Six.Wx.IRepositoy.Zbs
     /// <summary>
     /// 图书查询----预约的图书
     /// </summary>
-    public interface IZappointment
+    public interface IZappointmentRepository
     {
         /// <summary>
         /// 查询所有的图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Classification> GetClassifications();
+        IEnumerable<BooksSelect> GetBooksSelects();
 
         /// <summary>
         /// 查询部分的图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Classification> GetClassifications(string name);
+        IEnumerable<BooksSelect> GetSumBooksSelects(string name);
+
+        /// <summary>
+        /// 查询一条的图书信息
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<BooksSelect> GetOneBooksSelects(int id);
     }
 }

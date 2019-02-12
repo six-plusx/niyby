@@ -4,17 +4,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Six.Wx.IRepositoy.Zbs;
+
+using Six.Wx.IRepositoy.Fdy;
 using Six.Wx.Model;
 
-namespace Six.Wx.Api.Controllers.Zbs
+namespace Six.Wx.Api.Controllers.FDY
 {
-    public class ZappointmentController : ApiController
+    public class SearchController : ApiController
     {
         /// <summary>
         /// 属性注入
         /// </summary>
-        public IZappointmentRepository zappointment { get; set; }
+        public ISearchRepository searchs { get; set; }
 
         /// <summary>
         /// 查询所有的图书信息
@@ -24,8 +25,8 @@ namespace Six.Wx.Api.Controllers.Zbs
         [ActionName("GetBooksSelects")]
         public IEnumerable<BooksSelect> GetBooksSelects()
         {
-            var classificationlist = zappointment.GetBooksSelects();
-            return classificationlist;
+            var books = searchs.GetBooksSelects();
+            return books;
         }
 
         /// <summary>
@@ -36,7 +37,7 @@ namespace Six.Wx.Api.Controllers.Zbs
         [ActionName("GetSumBooksSelects")]
         public IEnumerable<BooksSelect> GetSumBooksSelects(string names)
         {
-            var classificationlist = zappointment.GetSumBooksSelects(names);
+            var classificationlist = searchs.GetSumBooksSelects(names);
             return classificationlist;
         }
 
@@ -48,7 +49,7 @@ namespace Six.Wx.Api.Controllers.Zbs
         [ActionName("GetOneBooksSelects")]
         public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
         {
-            var classificationlist = zappointment.GetOneBooksSelects(id);
+            var classificationlist = searchs.GetOneBooksSelects(id);
             return classificationlist;
         }
     }
