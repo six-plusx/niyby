@@ -13,6 +13,8 @@ using System.Web.Http;
 using Autofac.Integration.Mvc;
 using Six.Wx.Repositoy.Zbs;
 using Six.Wx.IRepositoy.Zbs;
+using Six.Wx.Repositoy.Fdy;
+using Six.Wx.IRepositoy.Fdy;
 
 namespace Six.Wx.Api
 {
@@ -44,6 +46,7 @@ namespace Six.Wx.Api
         {
             container.RegisterType<ZappointmentRepository>().As<IZappointmentRepository>();
             container.RegisterType<ZAddressRepository>().As<IZAddressRepository>();
+            container.RegisterType<SearchRepository>().As<ISearchRepository>();
         }
     }
 }
