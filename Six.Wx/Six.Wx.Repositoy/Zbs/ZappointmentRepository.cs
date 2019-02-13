@@ -29,7 +29,7 @@ namespace Six.Wx.Repositoy.Zbs
         /// <returns></returns>
         public IEnumerable<BooksSelect> GetBooksSelects()
         {
-            string sql = "select * from BooksSelect";
+            string sql = "select * from BooksSelect b left join Picture p on b.id = p.booksselectid";
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
@@ -44,7 +44,7 @@ namespace Six.Wx.Repositoy.Zbs
         /// <returns></returns>
         public IEnumerable<BooksSelect> GetSumBooksSelects(string name)
         {
-            string sql = $"select * from BooksSelect where BOOKSNAME like '%{name}%'";
+            string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where BOOKSNAME like '%{name}%'";
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
@@ -59,7 +59,7 @@ namespace Six.Wx.Repositoy.Zbs
         /// <returns></returns>
         public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
         {
-            string sql = $"select * from BooksSelect where id ='{id}'";
+            string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where b.id ='{id}'";
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {

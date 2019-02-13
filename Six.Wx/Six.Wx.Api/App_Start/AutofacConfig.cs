@@ -15,8 +15,11 @@ using Six.Wx.Repositoy.Zbs;
 using Six.Wx.IRepositoy.Zbs;
 using Six.Wx.Repositoy.Fdy;
 using Six.Wx.IRepositoy.Fdy;
+
 using Six.Wx.Repositoy.Dq;
 using Six.Wx.IRepositoy.Dq;
+using Six.Wx.Repositoy.Qxy;
+using Six.Wx.IRepositoy.Qxy;
 
 namespace Six.Wx.Api
 {
@@ -50,6 +53,7 @@ namespace Six.Wx.Api
             container.RegisterType<SappointmentRepository>().As<ISappointmentRepository>();
             container.RegisterType<ZAddressRepository>().As<IZAddressRepository>();
             container.RegisterType<SearchRepository>().As<ISearchRepository>();
+            container.RegisterType<AddBooksRepository>().As<IAddBooksRepository>();
         }
     }
 }
