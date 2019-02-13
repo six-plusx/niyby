@@ -36,7 +36,7 @@ Page({
 
               //显示收货地址
               wx.request({
-                url: 'http://localhost:55345/api/flower/GetAddress?username=' + res.data,
+              url: 'http://localhost:49590/api/flower/GetAddress?username=' + res.data,
                 method: 'GET',
                 data: {},
                 header: {
