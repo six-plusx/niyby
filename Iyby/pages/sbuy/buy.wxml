@@ -11,7 +11,7 @@
         <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" data-aid="{{item.ShopId}}" bindtap="selectList" />
 
         <block wx:if="{{item.Images}}">
-          <image class="cart-thumb" src="http://localhost:55345/{{item.ImagesArr[0]}}"></image>
+          <image class="cart-thumb" src="http://localhost:49590/{{item.ImagesArr[0]}}"></image>
         </block>
         <text class="cart-pro-name">{{item.Name}}</text>
         <text class="cart-pro-price">￥{{item.Price}}</text>
