@@ -66,5 +66,20 @@ namespace Six.Wx.Model
         /// 目录
         /// </summary>
         public string Catalogue { get; set; }
+
+        /// <summary>
+        /// 图片id
+        /// </summary>
+        public int PictureId { get; set; }
+
+        /// <summary>
+        /// 图片名称
+        /// </summary>
+        public string PictureName { get; set; }
+
+        /// <summary>
+        /// 图片路径
+        /// </summary>
+        public string PicturePath { get; set; }
     }
 }
