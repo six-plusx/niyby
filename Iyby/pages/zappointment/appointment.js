@@ -94,13 +94,30 @@ Page({
 
 
     var that = this;
+    // 开始的查询全部
+    // wx.request({
+    //   url: 'http://localhost:49590/api/Zappointment/GetBooksSelects',
+    //   method: 'GET',
+    //   success: function (allres) {
+    //     that.setData({
+    //       hasList: true,
+    //       carts: allres.data
+    //     })
+    //   }
+    // })
+
+    // 开始就按条件查询
     wx.request({
-      url: 'http://localhost:49590/api/Zappointment/GetBooksSelects',
+      url: 'http://localhost:49590/api/Zappointment/GetSumBooksSelects',
+      data: {
+        names: this.data.name,
+        typeid: this.data.typeid,
+      },
       method: 'GET',
-      success: function (allres) {
+      success: function (res) {
         that.setData({
           hasList: true,
-          carts: allres.data
+          carts: res.data
         })
       }
     })
