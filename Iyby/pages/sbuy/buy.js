@@ -19,7 +19,7 @@ Page({
           key: 'token',
           success: function (data) {
             wx.request({
-              url: 'http://localhost:49590/api/Zappointment/GetClassifications',
+              url: 'http://localhost:49590/api/Sappointment/GetClassifications',
               method: 'GET',
               header: {
                 'content-type': 'application/json',
@@ -32,24 +32,7 @@ Page({
                   carts: res.data
                 })
               }
-            }),
-
-              //显示收货地址
-              wx.request({
-              url: 'http://localhost:49590/api/flower/GetAddress?username=' + res.data,
-                method: 'GET',
-                data: {},
-                header: {
-                  'content-type': 'application/json',
-                  'Authorization': 'BasicAuth ' + data.data
-                },
-                success: function (res) {
-                  console.log(res)
-                  that.setData({
-                    tempInfo: res.data,
-                  })
-                }
-              })
+            })
           }
         })
       },
