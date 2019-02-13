@@ -1,4 +1,4 @@
-/* pages/appointment/appointment.wxss *//* pages/show/show.wxss */
+/* pages/appointment/appointment.wxss */
 .content {
   display: flex;
   flex-direction: column;
@@ -19,7 +19,6 @@
 
 .search-bar {
   z-index: 1;
-  padding-bottom: 40px;
 }
 
 .search-bar button {
@@ -107,17 +106,6 @@
   top: 40rpx;
   left: 40rpx;
   z-index: 1;
-}
-
-.btnXq{
-  height: 70rpx;
-  line-height: 70rpx;
-  width: 140rpx;
-  font-size: 30rpx;
-  margin-left: 77%;
-  background-color: rgb(77, 192, 42);
-  color: #fff;
-  border-radius: 98rpx; 
 }
 /* 圆角样式 */
 .btnXq::after {

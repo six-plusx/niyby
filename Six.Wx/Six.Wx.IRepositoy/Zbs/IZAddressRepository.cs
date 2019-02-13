@@ -19,7 +19,6 @@ namespace Six.Wx.IRepositoy.Zbs
         /// <returns></returns>
         IEnumerable<Address> GetAllAddresses();
 
-
         /// <summary>
         /// 返回一条的收货地址
         /// </summary>
