@@ -1,4 +1,4 @@
-/* pages/buy/buy.wxss */
+/* pages/appointment/appointment.wxss */
 .content {
   display: flex;
   flex-direction: column;
@@ -106,4 +106,23 @@
   top: 40rpx;
   left: 40rpx;
   z-index: 1;
+}
+/* 圆角样式 */
+.btnXq::after {
+  border-radius: 98rpx;
+}
+
+.cart-list{
+    display: inline-block;
+    width: 300rpx;
+    height: 105rpx;
+    line-height: 50rpx;
+    overflow: hidden;
+}
+
+/* 列表样式 */
+.cart-list1{
+  background-color: #fff;
+  margin-top: 15px;
+  padding: 15px;
 }

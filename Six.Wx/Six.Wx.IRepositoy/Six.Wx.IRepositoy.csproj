@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dq\ISappointmentRepository.cs" />
     <Compile Include="Fdy\ISearchRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Qxy\IAddBooksRepository.cs" />
@@ -54,8 +55,6 @@
       <Name>Six.Wx.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dq\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

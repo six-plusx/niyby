@@ -5,75 +5,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    name: ''
   },
 
-  //加载界面数据begin
-  onShow: function (options) {
-    var that = this;
-    wx.getStorage({
-      key: 'username',
-      success: function (res) {
-
-        wx.getStorage({
-          key: 'token',
-          success: function (data) {
-            wx.request({
-              url: 'http://localhost:49590/api/Zappointment/GetClassifications',
-              method: 'GET',
-              header: {
-                'content-type': 'application/json',
-                'Authorization': 'BasicAuth ' + data.data
-              },
-              success: function (res) {
-                console.log(res)
-                that.setData({
-                  hasList: true,
-                  carts: res.data
-                })
-              }
-            }),
-
-              //显示收货地址
-              wx.request({
-              url: 'http://localhost:49590/api/flower/GetAddress?username=' + res.data,
-                method: 'GET',
-                data: {},
-                header: {
-                  'content-type': 'application/json',
-                  'Authorization': 'BasicAuth ' + data.data
-                },
-                success: function (res) {
-                  console.log(res)
-                  that.setData({
-                    tempInfo: res.data,
-                  })
-                }
-              })
-          }
-        })
-      },
-      fail: function (res) { },
-      complete: function (res) { },
-    }),
-      this.getTotalPrice();
-  },
-
-  //输入查询信息
-  inputChange() {
-
-  },
 
   //查询
-  queryBooks: function () {
+  queryBooks: function (e) {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:49590/api/Sappointment/GetSumBooksSelects',
+      data: { names: this.data.name },
+      method: 'GET',
+      success: function (res) {
+        that.setData({
+          hasList: true,
+          carts: res.data
+        })
+      }
+    })
+  },
 
+  navigatordetails: function (e) {
+    var id = e.currentTarget.dataset.aid;//获取显示界面的Id值
+    wx.navigateTo({
+      url: '../zparticulars/particulars?id=' + e.currentTarget.dataset.aid
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: 'http://localhost:49590/api/Sappointment/GetBooksSelects',
+      method: 'GET',
+      success: function (allres) {
+        that.setData({
+          hasList: true,
+          carts: allres.data
+        })
+      }
+    })
   },
 
   /**
