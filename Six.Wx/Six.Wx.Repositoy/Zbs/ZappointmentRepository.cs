@@ -21,7 +21,9 @@ namespace Six.Wx.Repositoy.Zbs
         /// <summary>
         /// 连接字符串
         /// </summary>
-        public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+        //public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+        public static string connStr = ConfigHelper.conStr;
+
 
         /// <summary>
         /// 查询所有的图书信息
