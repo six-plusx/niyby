@@ -63,7 +63,7 @@ namespace Six.Wx.Repositoy.Zbs
         /// <returns></returns>
         public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
         {
-            string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where b.id ='{id}'";
+            string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid left join bookscontent bc on b.id=bc.booksselectid left join booksevaluate be on b.id=be.booksselectid where b.id ='{id}'";
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
