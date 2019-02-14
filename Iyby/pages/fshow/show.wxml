@@ -10,7 +10,7 @@
     <view wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
       <view class="book-list">
         <view class="book-image">
-          <image src="{{item.PicturePath}}"></image>
+          <image src="http://localhost:49590/{{item.PicturePath}}"></image>
           <view>{{item.PicturePath}}</view>
         </view>
         <view class="book-info">
