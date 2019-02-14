@@ -146,8 +146,13 @@ Page({
     wx.request({
       url: 'http://localhost:49590/api/AddBooks/AddBooks',
       data: {
-        names: this.data.name,
-        typeid: this.data.typeid,
+        booksname: this.data.BooksName,
+        author: this.data.Author,
+        price: this.data.Price,
+        message: this.data.Message,
+        enternum: this.data.EnterNum,
+        catalogue: this.data.Catalogue,
+        state: this.data.State,
       },
       method: 'GET',
       success: function (res) {
