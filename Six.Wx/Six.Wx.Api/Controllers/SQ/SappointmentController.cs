@@ -6,7 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 
 using Six.Wx.IRepositoy.Dq;
+using System.Configuration;//链接字符串所需要的命名空间
 using Six.Wx.Model;
+using System.Data;
+using Dapper;
+using System.Data.OracleClient;
 
 namespace Six.Wx.Api.Controllers.SQ
 {
@@ -35,9 +39,9 @@ namespace Six.Wx.Api.Controllers.SQ
         /// <returns></returns>
         [HttpGet]
         [ActionName("GetSumBooksSelects")]
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string names)
+        public IEnumerable<BooksSelect> GetSumBooksSelects(string names, int typeid)
         {
-            var classificationlist = sappointment.GetSumBooksSelects(names);
+            var classificationlist = sappointment.GetSumBooksSelects(names, typeid);
             return classificationlist;
         }
 

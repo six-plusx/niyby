@@ -85,5 +85,15 @@ namespace Six.Wx.Model
         /// 类别id
         /// </summary>
         public int ClassifyId { get; set; }
+
+        /// <summary>
+        /// 评价内容
+        /// </summary>
+        public string Evaluate { get; set; }
+
+        /// <summary>
+        /// 内容
+        /// </summary>
+        public string Content { get; set; }
     }
 }

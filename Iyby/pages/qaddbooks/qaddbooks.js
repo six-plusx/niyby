@@ -140,6 +140,26 @@ Page({
   
   },
 
+//添加按钮
+  addBook:function(e){
+    var that = this;
+    wx.request({
+      url: 'http://localhost:49590/api/AddBooks/AddBooks',
+      data: {
+        names: this.data.name,
+        typeid: this.data.typeid,
+      },
+      method: 'GET',
+      success: function (res) {
+        that.setData({
+          hasList: true,
+          carts: res.data
+        })
+      }
+    })
+  },
+
+
 //错误提示方法
   ohShitfadeOut() {
     var fadeOutTimeout = setTimeout(() => {
