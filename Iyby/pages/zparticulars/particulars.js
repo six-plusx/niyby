@@ -1,4 +1,6 @@
 // pages/zparticulars/particulars.js
+const api = require('../../utils/api.js');
+
 Page({
 
   /**
@@ -52,7 +54,7 @@ Page({
     console.log("传递进来的(要查询的预约图书)ID：" + id);
     var that=this;
     wx.request({
-      url: 'http://localhost:49590/api/Zappointment/GetOneBooksSelects?id='+id,
+      url: api.API_HOST+'/Zappointment/GetOneBooksSelects?id='+id,
       method:'get',
       success:function(res){
         that.setData({
