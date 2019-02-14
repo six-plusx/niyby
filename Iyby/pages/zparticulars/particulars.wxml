@@ -26,6 +26,7 @@
           <view>价格：￥{{item.Price}}\n</view>
           <view>出版社信息：{{item.Message}}\n</view>
           <view>预约的数量：{{item.LendNum}}\n</view>
+          <view>图书状态：{{item.State}}\n</view>
         </view>
       </view>
     </view>
@@ -98,3 +99,7 @@
 		</view>
 	</view>
 </view>
+
+  <view class="footer">
+    <button class="footer-add" formType="delivery_is_default" bindtap="bindbtn">保存</button>
+  </view>
