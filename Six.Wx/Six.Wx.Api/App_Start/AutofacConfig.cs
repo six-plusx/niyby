@@ -53,6 +53,7 @@ namespace Six.Wx.Api
             container.RegisterType<SappointmentRepository>().As<ISappointmentRepository>();
             container.RegisterType<ZAddressRepository>().As<IZAddressRepository>();
             container.RegisterType<SearchRepository>().As<ISearchRepository>();
+            container.RegisterType<AleadyBooksRepository>().As<IAleadyBooksRepository>();
             container.RegisterType<AddBooksRepository>().As<IAddBooksRepository>();
         }
     }

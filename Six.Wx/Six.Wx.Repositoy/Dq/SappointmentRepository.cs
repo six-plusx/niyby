@@ -34,6 +34,7 @@ namespace Six.Wx.Repositoy.Dq
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
+                
                 return booksSelectlist;
             }
         }
@@ -50,6 +51,7 @@ namespace Six.Wx.Repositoy.Dq
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
+               
                 return booksSelectlist;
             }
         }
@@ -66,8 +68,10 @@ namespace Six.Wx.Repositoy.Dq
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
+               
                 return booksSelectlist;
             }
         }
+        
     }
 }
