@@ -173,6 +173,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\FDY\SearchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QXY\AddBooksController.cs" />
+    <Compile Include="Controllers\QXY\AleadyBooksController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\Zbs\ZAddressController.cs" />
     <Compile Include="Controllers\Zbs\ZappointmentController.cs" />
