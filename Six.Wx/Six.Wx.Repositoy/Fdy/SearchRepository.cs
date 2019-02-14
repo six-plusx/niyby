@@ -26,7 +26,7 @@ namespace Six.Wx.Repositoy.Fdy
         /// <returns></returns>
         public IEnumerable<BooksSelect> GetBooksSelects()
         {
-            string sql = "select * from BooksSelect";
+            string sql = "select * from BooksSelect b left join Picture p on b.id = p.booksselectid";
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
@@ -39,9 +39,9 @@ namespace Six.Wx.Repositoy.Fdy
         /// 查询部分的图书信息
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string name)
+        public IEnumerable<BooksSelect> GetSumBooksSelects(string name, int typeid)
         {
-            string sql = $"select * from BooksSelect where BOOKSNAME like '%{name}%'";
+            string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where BOOKSNAME like '%{name}%' and ClassifyId={typeid}";
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
@@ -56,7 +56,7 @@ namespace Six.Wx.Repositoy.Fdy
         /// <returns></returns>
         public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
         {
-            string sql = $"select * from BooksSelect where id ='{id}'";
+            string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where b.id ='{id}'";
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {

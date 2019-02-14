@@ -35,9 +35,9 @@ namespace Six.Wx.Api.Controllers.FDY
         /// <returns></returns>
         [HttpGet]
         [ActionName("GetSumBooksSelects")]
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string names)
+        public IEnumerable<BooksSelect> GetSumBooksSelects(string name, int typeid)
         {
-            var classificationlist = searchs.GetSumBooksSelects(names);
+            var classificationlist = searchs.GetSumBooksSelects(names,typeid);
             return classificationlist;
         }
 
