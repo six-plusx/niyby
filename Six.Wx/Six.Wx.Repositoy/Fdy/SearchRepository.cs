@@ -30,8 +30,8 @@ namespace Six.Wx.Repositoy.Fdy
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
-                var booksSelectlist = conn.Query<BooksSelect>(sql);
-                return booksSelectlist;
+                var bookLists = conn.Query<BooksSelect>(sql);
+                return bookLists;
             }
         }
 
@@ -45,8 +45,8 @@ namespace Six.Wx.Repositoy.Fdy
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
-                var booksSelectlist = conn.Query<BooksSelect>(sql);
-                return booksSelectlist;
+                var bookNames = conn.Query<BooksSelect>(sql);
+                return bookNames;
             }
         }
 
@@ -60,8 +60,8 @@ namespace Six.Wx.Repositoy.Fdy
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
-                var booksSelectlist = conn.Query<BooksSelect>(sql);
-                return booksSelectlist;
+                var bookID = conn.Query<BooksSelect>(sql);
+                return bookID;
             }
         }
     }
