@@ -5,14 +5,14 @@
     "pages/zaddress/address",
     "pages/zsite/site",
     "pages/zparticulars/particulars",
+    "pages/zoneaddress/oneaddress",
     "pages/fshow/show",
     "pages/logs/logs",
     "pages/preorder/preorder",
     "pages/sbuy/buy",
     "pages/qaddbooks/qaddbooks",
     "pages/qstartentering/startentering",
-    "pages/qaleadyentering/aleadyentering",
-    "pages/zoneaddress/oneaddress"
+    "pages/qaleadyentering/aleadyentering"
   ],
   "window": {
     "backgroundTextStyle": "light",

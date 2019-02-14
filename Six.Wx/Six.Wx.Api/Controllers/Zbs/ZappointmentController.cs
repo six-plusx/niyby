@@ -34,9 +34,9 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// <returns></returns>
         [HttpGet]
         [ActionName("GetSumBooksSelects")]
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string names)
+        public IEnumerable<BooksSelect> GetSumBooksSelects(string names, int typeid)
         {
-            var classificationlist = zappointment.GetSumBooksSelects(names);
+            var classificationlist = zappointment.GetSumBooksSelects(names, typeid);
             return classificationlist;
         }
 

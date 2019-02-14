@@ -34,6 +34,8 @@ namespace Six.Wx.Repositoy.Zbs
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
+                conn.Dispose();
+                conn.Close();
                 return booksSelectlist;
             }
         }
@@ -42,13 +44,15 @@ namespace Six.Wx.Repositoy.Zbs
         /// 查询部分的图书信息
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string name)
+        public IEnumerable<BooksSelect> GetSumBooksSelects(string name, int typeid)
         {
-            string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where BOOKSNAME like '%{name}%'";
+            string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where BOOKSNAME like '%{name}%' and ClassifyId={typeid}";
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
+                conn.Dispose();
+                conn.Close();
                 return booksSelectlist;
             }
         }
@@ -64,6 +68,8 @@ namespace Six.Wx.Repositoy.Zbs
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
+                conn.Dispose();
+                conn.Close();
                 return booksSelectlist;
             }
         }

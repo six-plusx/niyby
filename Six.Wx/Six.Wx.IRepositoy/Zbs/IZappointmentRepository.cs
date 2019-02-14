@@ -23,7 +23,7 @@ namespace Six.Wx.IRepositoy.Zbs
         /// 查询部分的图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<BooksSelect> GetSumBooksSelects(string name);
+        IEnumerable<BooksSelect> GetSumBooksSelects(string name, int typeid);
 
         /// <summary>
         /// 查询一条的图书信息

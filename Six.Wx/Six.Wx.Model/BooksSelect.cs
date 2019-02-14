@@ -44,7 +44,6 @@ namespace Six.Wx.Model
         /// <summary>
         /// 录入数量
         /// </summary>
-
         public string EnterNum { get; set; }
 
         /// <summary>
@@ -81,5 +80,10 @@ namespace Six.Wx.Model
         /// 图片路径
         /// </summary>
         public string PicturePath { get; set; }
+
+        /// <summary>
+        /// 类别id
+        /// </summary>
+        public int ClassifyId { get; set; }
     }
 }
