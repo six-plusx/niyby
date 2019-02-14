@@ -33,6 +33,8 @@ namespace Six.Wx.Repositoy.Zbs
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var addreslist = conn.Query<Address>(sql);
+                conn.Dispose();
+                conn.Close();
                 return addreslist;
             }
         }
@@ -47,6 +49,8 @@ namespace Six.Wx.Repositoy.Zbs
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var addreslist = conn.Query<Address>(sql);
+                conn.Dispose();
+                conn.Close();
                 return addreslist;
             }
         }

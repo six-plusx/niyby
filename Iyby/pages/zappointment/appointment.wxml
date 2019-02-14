@@ -1,44 +1,145 @@
-<!--pages/appointment/appointment.wxml-->
-  <!-- <view class="search-bar">
-    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-    <input placeholder="请输入书名" bindchange="bindname"/>
-    <button type="primary" bindtap="queryBooks">查詢</button>
-  </view>
-
-  <view class="cart-list1" wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
-        <text class="information">书名：{{item.BooksName}}\n</text>
-        <text class="information">作者：{{item.Author}}\n</text>
-        <text class="information">价格：￥{{item.Price}}\n</text>
-        <text class="information">出版社信息：{{item.Message}}\n</text>
-        <text class="information">预约的数量：{{item.LendNum}}</text>
-  </view> -->
-
-<view class="content" scroll-y="true">
-  <view class="search-bar">
-    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-    <input placeholder="请输入书名" bindchange="inputChange"/>
-    <button type="primary" bindtap="queryBooks">查詢</button>
-  </view>
-  <view class="header-bg"></view>
-  <view class="book-content">
-    <view wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
-      <view class="book-list">
-        <view class="book-image">
-          <image src="{{item.PicturePath}}"></image>
-          <view>{{item.PicturePath}}</view>
+      <!-- 搜索框 -->
+      <!-- <view class="content" scroll-y="true">
+        <view class="search-bar">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input placeholder="请输入书名" bindchange="inputChange"/>
+          <button type="primary" bindtap="queryBooks">查詢</button>
         </view>
-        <view class="book-info">
-          <view class="book-info-style">
-            <view>书名：{{item.BooksName}}</view>
-            <view>作者：{{item.Author}}\n</view>
-            <view>价格：￥{{item.Price}}\n</view>
-            <view>出版社信息：{{item.Message}}\n</view>
-            <view>预约的数量：{{item.LendNum}}\n</view>
+      </view> -->
+
+<view class="container">
+	<view class="container-body">
+		<view class="tab">
+
+      <!-- 滑动列表头 -->
+			<view class="tab-nav">
+				<text wx:for="{{tabnav.tabitem}}" bindtap="setTab" class="{{showtab==index?'active':''}}" data-tabindex="{{index}}" data-type="{{item.type}}" wx:key="{{item.type}}">{{item.text}}</text>
+				<view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
+			</view>
+
+      <!-- 滑动列表体 -->
+			<view class="tab-content" style="" bindtouchstart="scrollTouchstart" bindtouchmove="scrollTouchmove" bindtouchend="scrollTouchend" style="width: {{tabnav.tabnum*100}}%;transform:translateX(-{{showtab*100/tabnav.tabnum}}%);margin-left: {{marginleft}}px;">
+				<view class="tab-panel">
+					<view class="test-list">
+              <view class="book-content">
+              <view wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
+                <view class="book-list">
+                  <view class="book-image">
+                    <image src="{{item.PicturePath}}"></image>
+                    <view>{{item.PicturePath}}</view>
+                  </view>
+                  <view class="book-info">
+                    <view class="book-info-style">
+                      <view>书名：{{item.BooksName}}</view>
+                      <view>作者：{{item.Author}}\n</view>
+                      <view>价格：￥{{item.Price}}\n</view>
+                      <view>出版社信息：{{item.Message}}\n</view>
+                      <view>预约的数量：{{item.LendNum}}\n</view>
+                    </view>
+                  </view>
+                </view>
+                <view class="line"></view>
+              </view>
+            </view>
+					</view>
+				</view>
+				<view class="tab-panel">
+					<view class="test-list">
+            <view class="book-content">
+            <view wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
+              <view class="book-list">
+                <view class="book-image">
+                  <image src="{{item.PicturePath}}"></image>
+                  <view>{{item.PicturePath}}</view>
+                </view>
+                <view class="book-info">
+                  <view class="book-info-style">
+                    <view>书名：{{item.BooksName}}</view>
+                    <view>作者：{{item.Author}}\n</view>
+                    <view>价格：￥{{item.Price}}\n</view>
+                    <view>出版社信息：{{item.Message}}\n</view>
+                    <view>预约的数量：{{item.LendNum}}\n</view>
+                  </view>
+                </view>
+              </view>
+              <view class="line"></view>
+            </view>
           </view>
-        </view>
-      </view>
-      <view class="line"></view>
-    </view>
-  </view>
+					</view>
+				</view>
+				<view class="tab-panel">
+					<view class="test-list">
+						  <view class="book-content">
+              <view wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
+                <view class="book-list">
+                  <view class="book-image">
+                    <image src="{{item.PicturePath}}"></image>
+                    <view>{{item.PicturePath}}</view>
+                  </view>
+                  <view class="book-info">
+                    <view class="book-info-style">
+                      <view>书名：{{item.BooksName}}</view>
+                      <view>作者：{{item.Author}}\n</view>
+                      <view>价格：￥{{item.Price}}\n</view>
+                      <view>出版社信息：{{item.Message}}\n</view>
+                      <view>预约的数量：{{item.LendNum}}\n</view>
+                    </view>
+                  </view>
+                </view>
+                <view class="line"></view>
+              </view>
+            </view>
+					</view>
+				</view>
+				<view class="tab-panel">
+					<view class="test-list">
+					  <view class="book-content">
+            <view wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
+              <view class="book-list">
+                <view class="book-image">
+                  <image src="{{item.PicturePath}}"></image>
+                  <view>{{item.PicturePath}}</view>
+                </view>
+                <view class="book-info">
+                  <view class="book-info-style">
+                    <view>书名：{{item.BooksName}}</view>
+                    <view>作者：{{item.Author}}\n</view>
+                    <view>价格：￥{{item.Price}}\n</view>
+                    <view>出版社信息：{{item.Message}}\n</view>
+                    <view>预约的数量：{{item.LendNum}}\n</view>
+                  </view>
+                </view>
+              </view>
+              <view class="line"></view>
+            </view>
+          </view>
+					</view>
+				</view>
+				<view class="tab-panel">
+					<view class="test-list">
+					  <view class="book-content">
+            <view wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
+              <view class="book-list">
+                <view class="book-image">
+                  <image src="{{item.PicturePath}}"></image>
+                  <view>{{item.PicturePath}}</view>
+                </view>
+                <view class="book-info">
+                  <view class="book-info-style">
+                    <view>书名：{{item.BooksName}}</view>
+                    <view>作者：{{item.Author}}\n</view>
+                    <view>价格：￥{{item.Price}}\n</view>
+                    <view>出版社信息：{{item.Message}}\n</view>
+                    <view>预约的数量：{{item.LendNum}}\n</view>
+                  </view>
+                </view>
+              </view>
+              <view class="line"></view>
+            </view>
+          </view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>
-

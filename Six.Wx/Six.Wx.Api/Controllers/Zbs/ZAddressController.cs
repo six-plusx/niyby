@@ -18,7 +18,7 @@ namespace Six.Wx.Api.Controllers.Zbs
         public IZAddressRepository zAddressRepository { get; set; }
 
         /// <summary>
-        /// 查询所有的图书信息
+        /// 查询所有的地址
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -30,7 +30,7 @@ namespace Six.Wx.Api.Controllers.Zbs
         }
 
         /// <summary>
-        /// 查询所有的图书信息
+        /// 查询一条地址
         /// </summary>
         /// <returns></returns>
         [HttpGet]

@@ -90,7 +90,10 @@ page{
 }
 
 .page__hd {
-    padding: 40px;
+    padding-top: 40px;
+    position:fixed; 
+    top:20rpx;
+    width: 750rpx;
 }
 .page__bd {
     padding-bottom: 40px;
