@@ -1,4 +1,4 @@
-<!--pages/show/show.wxml-->
+ <!--pages/show/show.wxml-->
 <view class="content" scroll-y="true">
   <view class="search-bar">
     <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
