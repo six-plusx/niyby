@@ -34,6 +34,7 @@ namespace Six.Wx.Repositoy.Zbs
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
+                conn.Close();
                 return booksSelectlist;
             }
         }
@@ -49,6 +50,7 @@ namespace Six.Wx.Repositoy.Zbs
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
+                conn.Close();
                 return booksSelectlist;
             }
         }
@@ -64,6 +66,7 @@ namespace Six.Wx.Repositoy.Zbs
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
+                conn.Close();
                 return booksSelectlist;
             }
         }

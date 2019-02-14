@@ -50,6 +50,7 @@
     <Compile Include="Fdy\SearchRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Qxy\AddBooksRepository.cs" />
+    <Compile Include="Qxy\AleadyBooksRepository.cs" />
     <Compile Include="Zbs\ZAddressRepository.cs" />
     <Compile Include="Zbs\ZappointmentRepository.cs" />
   </ItemGroup>

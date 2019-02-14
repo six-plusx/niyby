@@ -33,6 +33,7 @@ namespace Six.Wx.Repositoy.Qxy
             using(IDbConnection conn=new OracleConnection(strConn))
             {
                 var bookslist = conn.Query<BooksSelect>(sql);
+                conn.Close();
                 return bookslist;
             }
         }
@@ -47,6 +48,7 @@ namespace Six.Wx.Repositoy.Qxy
             using(IDbConnection conn=new OracleConnection(strConn))
             {
                 var addbooks = conn.Execute(sql);
+                conn.Close();
                 return addbooks;
             }
         }
