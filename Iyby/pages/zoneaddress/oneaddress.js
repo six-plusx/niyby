@@ -1,4 +1,6 @@
 // pages/zoneaddress/oneaddress.js
+const api = require('../../utils/api.js');
+
 Page({
 
   /**
@@ -114,7 +116,7 @@ Page({
     console.log("传递进来的(要查询的收货地址)ID："+id);
     var that = this;
     wx.request({
-      url: 'http://localhost:49590/api/ZAddress/GetOneAddresses?id=' + id,
+      url: api.API_HOST +'/ZAddress/GetOneAddresses?id=' + id,
       method: 'get',
       success: function (res) {
         that.setData({
