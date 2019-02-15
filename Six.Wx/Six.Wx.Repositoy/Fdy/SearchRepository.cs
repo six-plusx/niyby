@@ -18,7 +18,8 @@ namespace Six.Wx.Repositoy.Fdy
         /// <summary>
         /// 连接字符串语句
         /// </summary>
-        public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+        //public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+        public static string connStr = ConfigHelper.conStr;     //这句话是调用的封装类ConfigHelper
 
         /// <summary>
         /// 获取所有的图书信息
