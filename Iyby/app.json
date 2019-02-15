@@ -12,7 +12,8 @@
     "pages/sbuy/buy",
     "pages/qaddbooks/qaddbooks",
     "pages/qstartentering/startentering",
-    "pages/qaleadyentering/aleadyentering"
+    "pages/qaleadyentering/aleadyentering",
+    "pages/zclosing/closing"
   ],
   "window": {
     "backgroundTextStyle": "light",

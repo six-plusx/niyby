@@ -15,14 +15,25 @@
 }
 
 .footer-add {
-  width: 100%;
+  width: 75%;
   height: 50px;
   line-height: 50px;
   font-size: 16px;
-  color: #fff;
   text-align: center;
-  background-color: #c81623;
   border-radius: 0px;
+  float: left;
+}
+
+.footer-del {
+  width: 25%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 0px;
+  color: #fff;
+  background-color: #c81623;
+  float: right;
 }
 
 .switchmr{

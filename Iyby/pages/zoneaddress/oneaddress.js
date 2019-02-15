@@ -7,11 +7,28 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:0,
     region: ['', '', ''],//省市区，默认值
-    inputsite: '',//地址
-    inputperson: '',//联系人
-    inputphone: '',//联系电话
     popErrorMsg: ''
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.data.id = parseInt(options.id);
+    console.log("传递进来的(要查询的收货地址)ID：" + this.data.id);
+    var that = this;
+    wx.request({
+      url: api.API_HOST + '/ZAddress/GetOneAddresses?id=' + this.data.id,
+      method: 'get',
+      success: function (res) {
+        that.setData({
+          hasList: true,
+          carts: res.data
+        })
+      }
+    })
   },
 
   // 省市区--显示选择的路径
@@ -21,38 +38,41 @@ Page({
     })
   },
 
-  // 详细地址
-  bindsite: function (e) {
-    this.data.inputsite = e.detail.value;
-  },
-
-  // 联系人
-  bindperson(e) {
-    this.data.inputperson = e.detail.value;
-  },
-
-  // 联系电话
-  bindphone(e) {
-    this.data.inputphone = e.detail.value;
-  },
-
   // 保存按钮
-  bindbtn: function (e) {
-    console.log("详细地址" + this.data.inputsite)
-    if (this.data.inputsite == '') {
+  formSubmit: function (e) {
+    // 地址
+    var region
+    if (this.data.region == ',,') {
+      region = e.currentTarget.dataset.dizi;//获取显示界面的Id值
+      console.log('旧'+region);
+    }
+    else {
+      region = this.data.region;
+      console.log('新'+region);
+    }
+    // 详细地址
+    var inputsite = e.detail.value.inputxxdz;
+    // 联系人
+    var inputperson = e.detail.value.inputlxr;
+    // 电话
+    var inputphone = e.detail.value.inputlxdh;
+    // 默认
+    var switchloc = e.detail.value.delivery_is_default;  
+    
+    console.log("详细地址" + inputsite)
+    if (inputsite == '') {
       setTimeout(() => {
         this.setData(
-          { popErrorMsg: "地址未修改 " }
+          { popErrorMsg: "请输入详细地址 " }
         );
         this.ohShitfadeOut();
       }, 100)
       return;
     }
 
-    console.log("联系人：" + this.data.inputperson)
-    if (this.data.inputperson == '') {
+    console.log("联系人：" + inputperson)
+    if (inputperson == '') {
       setTimeout(() => {
-        console.log("联系人：" + this.data.inputperson)
         this.setData(
           { popErrorMsg: "请输入联系人" }
         );
@@ -61,8 +81,8 @@ Page({
       return;
     }
 
-    console.log("手机号：" + this.data.inputphone)
-    if (this.data.inputphone == '') {
+    console.log("手机号：" + inputphone)
+    if (inputphone == '') {
       setTimeout(() => {
         this.setData(
           { popErrorMsg: "请输入手机号码" }
@@ -74,7 +94,7 @@ Page({
     }
     else {
       var reg = new RegExp('^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$');
-      var phoneVar = reg.test(this.data.inputphone);     // 得到的值为布尔型
+      var phoneVar = reg.test(inputphone);     // 得到的值为布尔型
       if (phoneVar == false) {
         setTimeout(() => {
           this.setData(
@@ -87,10 +107,34 @@ Page({
     }
     console.log('验证结束');
 
-    wx.showToast({
-      title: '成功',
-      icon: 'success',
-      duration: 1000
+    var that = this;
+    wx.request({
+      url: api.API_HOST + '/ZAddress/UpdateAddresses',
+      method: 'GET',
+      data: {
+        id: this.data.id,
+        area: region,
+        loction: inputsite,
+        consignee: inputperson,
+        photo: inputphone,
+        defaultLoc: switchloc,
+      },
+      success: function (res) {
+        if (res = 1) {
+          wx.showToast({
+            title: '修改成功',
+            icon: 'success',
+            duration: 1000
+          })
+        }
+        else {
+          wx.showToast({
+            title: '修改失败',
+            icon: 'fail',
+            duration: 1000
+          })
+        }
+      }
     })
 
     //1秒后跳转
@@ -101,30 +145,56 @@ Page({
     }, 1000)
   },
 
+  // 删除方法
+  delbtn(e) {
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除么？',
+      success:function(sm){
+        if(sm.confirm){
+          //用户点击了确定
+          var that = this;
+          wx.request({
+            url: api.API_HOST + '/ZAddress/DeleteAddresses?id=' + e.currentTarget.dataset.aid,
+            method: 'GET',
+            success: function (res) {
+              if (res = 1) {
+                wx.showToast({
+                  title: '删除成功',
+                  icon: 'success',
+                  duration: 1000
+                })
+              }
+              else {
+                wx.showToast({
+                  title: '删除失败',
+                  icon: 'fail',
+                  duration: 1000
+                })
+              }
+            }
+          })
+
+          //1秒后跳转
+          setTimeout(function () {
+            wx.reLaunch({
+              url: '../zsite/site',
+            })
+          }, 1000)
+        }
+        else if (sm.cancel){
+          // 用户点击了取消
+          return;
+        }
+      }
+    })    
+  },
+
   ohShitfadeOut() {
     var fadeOutTimeout = setTimeout(() => {
       this.setData({ popErrorMsg: '' });
       clearTimeout(fadeOutTimeout);
     }, 3000);
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var id = parseInt(options.id);
-    console.log("传递进来的(要查询的收货地址)ID："+id);
-    var that = this;
-    wx.request({
-      url: api.API_HOST +'/ZAddress/GetOneAddresses?id=' + id,
-      method: 'get',
-      success: function (res) {
-        that.setData({
-          hasList: true,
-          carts: res.data
-        })
-      }
-    })
   },
 
   /**

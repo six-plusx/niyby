@@ -256,5 +256,24 @@ Page({
     that.setData({
       scrollTop: e.scrollTop
     })
+  },
+
+  // 进入结算界面--开始预约
+  closing1:function(e){
+    wx.navigateTo({
+      url: '../zclosing/closing?id=' + e.currentTarget.dataset.aid+'&state='+1
+    })
+  },
+   // 进入结算界面--开始购买
+  closing2: function (e) {
+    wx.navigateTo({
+      url: '../zclosing/closing?id=' + e.currentTarget.dataset.aid + '&state=' + 2
+    })
+  },
+   // 进入结算界面--开始上架
+  closing3: function (e) {
+    wx.navigateTo({
+      url: '../zclosing/closing'
+    })
   }
 })
