@@ -18,7 +18,8 @@ namespace Six.Wx.Repositoy.Fdy
         /// <summary>
         /// 连接字符串语句
         /// </summary>
-        public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+        //public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+        public static string connStr = ConfigHelper.conStr;     //这句话是调用的封装类ConfigHelper
 
         /// <summary>
         /// 获取所有的图书信息
@@ -30,8 +31,8 @@ namespace Six.Wx.Repositoy.Fdy
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
-                var booksSelectlist = conn.Query<BooksSelect>(sql);
-                return booksSelectlist;
+                var bookLists = conn.Query<BooksSelect>(sql);
+                return bookLists;
             }
         }
 
@@ -45,8 +46,8 @@ namespace Six.Wx.Repositoy.Fdy
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
-                var booksSelectlist = conn.Query<BooksSelect>(sql);
-                return booksSelectlist;
+                var bookNames = conn.Query<BooksSelect>(sql);
+                return bookNames;
             }
         }
 
@@ -60,8 +61,8 @@ namespace Six.Wx.Repositoy.Fdy
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
-                var booksSelectlist = conn.Query<BooksSelect>(sql);
-                return booksSelectlist;
+                var bookID = conn.Query<BooksSelect>(sql);
+                return bookID;
             }
         }
     }
