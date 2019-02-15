@@ -52,6 +52,7 @@ Page({
 
 //确认录入
   addBook:function(){
+    //书名
     if (this.data.booknames == '') {
       setTimeout(() => {
         this.setData(
@@ -61,7 +62,7 @@ Page({
       }, 100)
       return;
     }
-
+//作者
     if (this.data.authors == '') {
       setTimeout(() => {
         this.setData(
@@ -71,7 +72,7 @@ Page({
       }, 100)
       return;
     }
-
+//价格
     if (this.data.prices == '') {
       setTimeout(() => {
         this.setData(
@@ -81,7 +82,7 @@ Page({
       }, 100)
       return;
     }
-
+//出版社
     if (this.data.messages == '') {
       setTimeout(() => {
         this.setData(
@@ -91,7 +92,7 @@ Page({
       }, 100)
       return;
     }
-
+//录入数量
     if (this.data.nums == '') {
       setTimeout(() => {
         this.setData(
@@ -101,21 +102,11 @@ Page({
       }, 100)
       return;
     }
-
+//图书目录
     if (this.data.catalogues == '') {
       setTimeout(() => {
         this.setData(
           { popErrorMsg: "请输入图书目录" }
-        );
-        this.ohShitfadeOut();
-      }, 100)
-      return;
-    }
-
-    if (this.data.states == '') {
-      setTimeout(() => {
-        this.setData(
-          { popErrorMsg: "请输入图书状态" }
         );
         this.ohShitfadeOut();
       }, 100)
