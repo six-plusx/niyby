@@ -35,5 +35,10 @@ namespace Six.Wx.Model
         /// 详细地址
         /// </summary>
         public string Loction { get; set; }
+
+        /// <summary>
+        /// 默认收货地址
+        /// </summary>
+        public int DefaultLoc { get; set; }
     }
 }

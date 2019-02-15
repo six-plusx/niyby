@@ -5,9 +5,16 @@
     padding: 13px;
     background-color: #FFFFFF;
     margin-top: 20px;
+    font-size: 30rpx;
 }
 
 .textbox{
+    padding: 13px;
+    background-color: #FFFFFF;
+    margin-top: 20px;
+}
+
+.switchbox{  
     padding: 13px;
     background-color: #FFFFFF;
     margin-top: 20px;

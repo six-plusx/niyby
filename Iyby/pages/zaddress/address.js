@@ -11,7 +11,8 @@ Page({
     inputsite: '',//地址
     inputperson: '',//联系人
     inputphone: '',//联系电话
-    popErrorMsg:''
+    switchloc:true,//是否选中
+    popErrorMsg:''//错误提示信息
   },
 
   // 省市区--显示选择的路径
@@ -34,6 +35,11 @@ Page({
   // 联系电话
   bindphone(e) {
     this.data.inputphone=e.detail.value;
+  },
+
+  // 默认的状态
+  switchChange:function(e){
+    this.data.switchloc=e.detail.value;
   },
 
   // 保存按钮
@@ -87,11 +93,39 @@ Page({
     }
     console.log('验证结束');
 
-    wx.showToast({
-      title: '成功',
-      icon: 'success',
-      duration: 1000
+    var that = this;
+    wx.request({
+      url: api.API_HOST + '/ZAddress/AddAddresses',
+      method: 'GET',
+      data:{
+        area: this.data.region,
+        loction: this.data.inputsite,
+        consignee: this.data.inputperson,
+        photo: this.data.inputphone,
+        defaultLoc: this.data.switchloc,
+      },
+      success: function (res) {
+        if(res=1)
+        {
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 1000
+          })
+        }
+        else
+        {
+          wx.showToast({
+            title: '保存失败',
+            icon: 'fail',
+            duration: 1000
+          })
+          return;
+        }        
+      }
     })
+
+   
 
     //1秒后跳转
     setTimeout(function () {
