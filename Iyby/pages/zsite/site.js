@@ -1,4 +1,6 @@
 // pages/site/site.js
+const api = require('../../utils/api.js');
+
 Page({
 
   /**
@@ -22,7 +24,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://localhost:49590/api/ZAddress/GetAllAddresses',
+      url: api.API_HOST +'/ZAddress/GetAllAddresses',
       method: 'GET',
       success: function (res) {
         that.setData({

@@ -1,4 +1,6 @@
-  // pages/appointment/appointment.js
+// pages/appointment/appointment.js
+const api = require('../../utils/api.js');
+
 Page({
 
   /**
@@ -32,7 +34,7 @@ Page({
   queryBooks: function (e) {
     var that=this;
     wx.request({
-      url: 'http://localhost:49590/api/Zappointment/GetSumBooksSelects',
+      url: api.API_HOST +'/Zappointment/GetSumBooksSelects',
       data:{
         names:this.data.name,
         typeid:this.data.typeid,
@@ -96,7 +98,7 @@ Page({
     var that = this;
     // 开始的查询全部
     // wx.request({
-    //   url: 'http://localhost:49590/api/Zappointment/GetBooksSelects',
+    //   url: api.API_HOST+'/Zappointment/GetBooksSelects',
     //   method: 'GET',
     //   success: function (allres) {
     //     that.setData({
@@ -108,7 +110,7 @@ Page({
 
     // 开始就按条件查询
     wx.request({
-      url: 'http://localhost:49590/api/Zappointment/GetSumBooksSelects',
+      url: api.API_HOST +'/Zappointment/GetSumBooksSelects',
       data: {
         names: this.data.name,
         typeid: this.data.typeid,
@@ -178,7 +180,7 @@ Page({
   fetchData: function (typeid) {  //查询数据
     var that = this;
     wx.request({
-      url: 'http://localhost:49590/api/Zappointment/GetSumBooksSelects',
+      url: api.API_HOST +'/Zappointment/GetSumBooksSelects',
       data: {
         names: this.data.name,
         typeid:typeid,

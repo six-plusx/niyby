@@ -1,4 +1,6 @@
 // pages/address/address.js
+const api = require('../../utils/api.js');
+
 Page({
 
   /**
