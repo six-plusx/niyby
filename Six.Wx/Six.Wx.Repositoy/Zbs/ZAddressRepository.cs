@@ -82,5 +82,50 @@ namespace Six.Wx.Repositoy.Zbs
                 return i;
             }
         }
+
+        /// <summary>
+        /// 修改一条收货地址
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        public int UpdateAddresses(Address address)
+        {
+            using (IDbConnection conn = new OracleConnection(connStr))
+            {
+                string sql = "";
+                int i = 0;
+                if (address.DefaultLoc == 1)//如果设置为默认的,先把别的都给改成非默认
+                {
+                    sql = "select count(id) from loc where defaultloc = 1";//更改所有
+                    i = Convert.ToInt32(conn.ExecuteScalar(sql));
+                    if (i > 0)
+                    {
+                        //sql = "update loc set defaultloc=0 where id = (select id from loc where defaultloc=1)";
+                        sql = "update loc set defaultloc=0";//更改所有
+                        conn.Execute(sql);
+                    }
+                }
+                sql = $"update loc set consignee='{address.Consignee}',area='{address.Area}',photo='{address.Photo}',loction='{address.Loction}',DefaultLoc='{address.DefaultLoc}' where id='{address.Id}'";
+                i = conn.Execute(sql);
+                conn.Close();
+                return i;
+            }
+        }
+
+        /// <summary>
+        /// 删除一条收货地址
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        public int DeleteAddresses(int id)
+        {
+            using (IDbConnection conn = new OracleConnection(connStr))
+            {
+                string sql = $"delete from loc where id='{id}'";
+                int i = conn.Execute(sql);
+                conn.Close();
+                return i;
+            }
+        }
     }
 }

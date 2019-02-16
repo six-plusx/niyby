@@ -14,12 +14,6 @@
     margin-top: 20px;
 }
 
-.switchbox{  
-    padding: 13px;
-    background-color: #FFFFFF;
-    margin-top: 20px;
-}
-
 .footer-add {
   width: 100%;
   height: 50px;
