@@ -15,7 +15,7 @@
       <input bindchange="bindsite" placeholder="详细地址" class='textbox'/>
       <input bindchange="bindperson" placeholder="联系人" class='textbox'/>
       <input bindchange="bindphone" type="number" maxlength="11" placeholder="联系电话" class='textbox'/>
-      <view class='switchbox'>设为默认地址<switch checked bindchange='switchChange' name="delivery_is_default" class='switchmr'/></view>
+      <view class='textbox'>设为默认地址<switch checked bindchange='switchChange' name="delivery_is_default" class='switchmr'/></view>
     </view>
 
     <view class="footer">

@@ -31,5 +31,20 @@ namespace Six.Wx.IRepositoy.Zbs
         /// <param name="address"></param>
         /// <returns></returns>
         int AddAddresses(Address address);
+
+        /// <summary>
+        /// 修改一条收货地址
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        int UpdateAddresses(Address address);
+
+
+        /// <summary>
+        /// 删除一条收货地址
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        int DeleteAddresses(int id);
     }
 }
