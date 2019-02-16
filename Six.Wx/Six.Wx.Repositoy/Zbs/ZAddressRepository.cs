@@ -34,7 +34,6 @@ namespace Six.Wx.Repositoy.Zbs
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var addreslist = conn.Query<Address>(sql);
-                conn.Dispose();
                 conn.Close();
                 return addreslist;
             }
@@ -50,9 +49,37 @@ namespace Six.Wx.Repositoy.Zbs
             using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var addreslist = conn.Query<Address>(sql);
-                conn.Dispose();
                 conn.Close();
                 return addreslist;
+            }
+        }
+
+        /// <summary>
+        /// 添加一条收货地址
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        public int AddAddresses(Address address)
+        {
+            using (IDbConnection conn = new OracleConnection(connStr))
+            {
+                string sql = "";
+                int i = 0;
+                if (address.DefaultLoc == 1)//如果设置为默认的,先把别的都给改成非默认
+                {
+                    sql = "select count(id) from loc where defaultloc = 1";//更改所有
+                    i = Convert.ToInt32(conn.ExecuteScalar(sql));
+                    if (i > 0)
+                    {
+                        //sql = "update loc set defaultloc=0 where id = (select id from loc where defaultloc=1)";
+                        sql = "update loc set defaultloc=0";//更改所有
+                        conn.Execute(sql);
+                    }
+                }
+                sql = $"insert into loc(consignee,area,photo,loction，DefaultLoc) values('{address.Consignee}','{address.Area}','{address.Photo}','{address.Loction}','{address.DefaultLoc}')";
+                i = conn.Execute(sql);
+                conn.Close();
+                return i;
             }
         }
     }

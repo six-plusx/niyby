@@ -9,8 +9,16 @@
 .cart-list1{
   background-color: #fff;
   margin-top: 15px;
+  font-size: 30rpx;
+  padding: 10px;
 }
 
 .information{
   margin-left: 20px;
+}
+
+.defaulttext{
+  background-color: rgba(201, 92, 119, 0.171);
+  color: rgba(226, 4, 4, 0.932);
+  padding:0px 5px;
 }

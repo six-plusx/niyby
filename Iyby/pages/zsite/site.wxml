@@ -1,9 +1,13 @@
 <!--pages/site/site.wxml-->
   <view class="cart-list1" wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
-        <text class="information">收货人：{{item.Consignee}}\n</text>
-        <text class="information">联系电话：{{item.Photo}}\n</text>
-        <text class="information">所在地区：{{item.Area}}\n</text>
-        <text class="information">详细地址：{{item.Loction}}\</text>
+    <text class="information">{{item.Consignee}} {{item.Photo}}\n</text>
+    <!--判断是否是默认的 -->
+    <block wx:if="{{item.DefaultLoc==1}}"> 
+      <view class="information"><text class='defaulttext'>默认</text><text>{{item.Area}} {{item.Loction}}\n</text></view> 
+    </block>
+    <block wx:else>
+      <text class="information">{{item.Area}} {{item.Loction}}\n</text>
+    </block>
   </view>
 
 <view class="weui-cells weui-cells_after-title">

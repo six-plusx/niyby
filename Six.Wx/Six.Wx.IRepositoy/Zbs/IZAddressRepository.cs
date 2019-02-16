@@ -24,5 +24,12 @@ namespace Six.Wx.IRepositoy.Zbs
         /// </summary>
         /// <returns></returns>
         IEnumerable<Address> GetOneAddresses(int id);
+
+        /// <summary>
+        /// 添加一条收货地址
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        int AddAddresses(Address address);
     }
 }

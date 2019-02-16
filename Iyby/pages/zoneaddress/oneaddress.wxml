@@ -1,11 +1,18 @@
 <!--pages/zoneaddress/oneaddress.wxml-->
   <view class="cart-list1" wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
-    <text class="information">原所在地区：{{item.Area}}\n</text>
+    <!-- <text class="information">原所在地区：{{item.Area}}\n</text> -->
     <view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view> 
 
     <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
       <view class="picker">
-        当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+
+        <block wx:if="{{region[0]==''}}"> 
+          当前选择：{{item.Area}}
+        </block>
+        <block wx:else> 
+          当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}        
+        </block>
+
       </view>
     </picker>
 
