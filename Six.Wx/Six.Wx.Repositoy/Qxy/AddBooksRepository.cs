@@ -21,7 +21,7 @@ namespace Six.Wx.Repositoy.Qxy
         /// <summary>
         /// 连接数据库字符串
         /// </summary>
-        public static string strConn = ConfigurationManager.ConnectionStrings["strConn"].ToString();
+        public static string strConn = ConfigHelper.conStr;
 
         /// <summary>
         /// 显示图书信息列表
