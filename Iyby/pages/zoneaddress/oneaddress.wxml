@@ -7,7 +7,7 @@
     <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
       <view class="picker">
 
-        <block wx:if="{{region[0]==''}}" name='blockdz'> 
+        <block wx:if="{{region[0]==''}}" name='blockdz' data-dizi='{{item.Area}}'> 
           当前选择：{{item.Area}}
         </block>
         <block wx:else> 
@@ -27,7 +27,7 @@
     </view>
 
     <view class="footer">
-      <button class="footer-add" formType="delivery_is_default" bindtap="bindbtn" >保存</button>
+      <button class="footer-add" formType="submit">保存</button>
       <button class="footer-del" formType="delivery_is_default" bindtap="delbtn" data-aid='{{item.Id}}'>删除</button>
     </view>
   </view>

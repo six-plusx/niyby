@@ -9,10 +9,6 @@ Page({
   data: {
     id:0,
     region: ['', '', ''],//省市区，默认值
-    inputsite: '',//地址
-    inputperson: '',//联系人
-    inputphone: '',//联系电话
-    switchloc:true,
     popErrorMsg: ''
   },
 
@@ -31,21 +27,6 @@ Page({
           hasList: true,
           carts: res.data
         })
-        // this.setData({
-        //   region : res.data[0].Area,
-        //   inputsite : res.data[0].Loction,
-        //   inputperson : res.data[0].Consignee,
-        //   inputphone : res.data[0].Photo
-        //  })
-        // this.data.region = res.data[0].Area,
-        //   this.data.inputsite = res.data[0].Loction,
-        //   this.data.inputperson = res.data[0].Consignee,
-        //   this.data.inputphone = res.data[0].Photo
-
-        // console.log("：" + res.data[0].Area),
-        //   console.log("：" + res.data[0].Loction),
-        //   console.log("：" + res.data[0].Loction),
-        //   console.log("：" + res.data[0].Photo)
       }
     })
   },
@@ -57,44 +38,29 @@ Page({
     })
   },
 
-  // 详细地址
-  bindsite: function (e) {
-    this.data.inputsite = e.detail.value;
-  },
-
-  // 联系人
-  bindperson(e) {
-    this.data.inputperson = e.detail.value;
-  },
-
-  // 联系电话
-  bindphone(e) {
-    this.data.inputphone = e.detail.value;
-  },
-
-  // 默认的状态
-  switchChange: function (e) {
-    this.data.switchloc = e.detail.value;
-  },
-
-  // 表单取值
+  // 保存按钮
   formSubmit: function (e) {
     // 地址
-    this.data.region = e.detail.value.blockdz;
+    var region
+    if (this.data.region == ',,') {
+      region = e.currentTarget.dataset.dizi;//获取显示界面的Id值
+      console.log('旧'+region);
+    }
+    else {
+      region = this.data.region;
+      console.log('新'+region);
+    }
     // 详细地址
-    this.data.inputsite = e.detail.value.inputxxdz;
+    var inputsite = e.detail.value.inputxxdz;
     // 联系人
-    this.data.inputperson = e.detail.value.inputlxr;
+    var inputperson = e.detail.value.inputlxr;
     // 电话
-    this.data.inputphone = e.detail.value.inputlxdh;
+    var inputphone = e.detail.value.inputlxdh;
     // 默认
-    this.data.switchloc = e.detail.value.delivery_is_default;    
-  },
-
-  // 保存按钮
-  bindbtn: function (e) {
-    console.log("详细地址" + this.data.inputsite)
-    if (this.data.inputsite == '') {
+    var switchloc = e.detail.value.delivery_is_default;  
+    
+    console.log("详细地址" + inputsite)
+    if (inputsite == '') {
       setTimeout(() => {
         this.setData(
           { popErrorMsg: "请输入详细地址 " }
@@ -104,10 +70,9 @@ Page({
       return;
     }
 
-    console.log("联系人：" + this.data.inputperson)
-    if (this.data.inputperson == '') {
+    console.log("联系人：" + inputperson)
+    if (inputperson == '') {
       setTimeout(() => {
-        console.log("联系人：" + this.data.inputperson)
         this.setData(
           { popErrorMsg: "请输入联系人" }
         );
@@ -116,8 +81,8 @@ Page({
       return;
     }
 
-    console.log("手机号：" + this.data.inputphone)
-    if (this.data.inputphone == '') {
+    console.log("手机号：" + inputphone)
+    if (inputphone == '') {
       setTimeout(() => {
         this.setData(
           { popErrorMsg: "请输入手机号码" }
@@ -129,7 +94,7 @@ Page({
     }
     else {
       var reg = new RegExp('^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$');
-      var phoneVar = reg.test(this.data.inputphone);     // 得到的值为布尔型
+      var phoneVar = reg.test(inputphone);     // 得到的值为布尔型
       if (phoneVar == false) {
         setTimeout(() => {
           this.setData(
@@ -148,11 +113,11 @@ Page({
       method: 'GET',
       data: {
         id: this.data.id,
-        area: this.data.region,
-        loction: this.data.inputsite,
-        consignee: this.data.inputperson,
-        photo: this.data.inputphone,
-        defaultLoc: this.data.switchloc,
+        area: region,
+        loction: inputsite,
+        consignee: inputperson,
+        photo: inputphone,
+        defaultLoc: switchloc,
       },
       success: function (res) {
         if (res = 1) {
