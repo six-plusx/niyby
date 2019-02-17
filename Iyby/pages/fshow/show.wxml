@@ -18,7 +18,7 @@
             <view>作者：{{item.Author}}\n</view>
             <view>价格：￥{{item.Price}}\n</view>
             <view>出版社信息：{{item.Message}}\n</view>
-            <view>预约的数量：{{item.LendNum}}\n</view>
+            <view>可购的数量：{{item.LendNum}}\n</view>
           </view>
         </view>
       </view>
