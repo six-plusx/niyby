@@ -18,19 +18,13 @@ namespace Six.Wx.Repositoy.Dq
     /// </summary>
     public class SappointmentRepository:ISappointmentRepository
     {
-        /// <summary>
-        /// 连接字符串
-        /// </summary>
-        public static string connStr = ConfigHelper.conStr;
-
-        /// <summary>
         /// 查询所有图书
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<BooksSelect> GetBooksSelects()
+        public IEnumerable<BooksSelect> GetAllBook()
         {
             string sql = "select *from booksselect b left join picture p on b.id=p.booksselectid";
-            using (IDbConnection conn=new OracleConnection(connStr))
+            using (IDbConnection conn=new OracleConnection(ConfigHelper.ConnString))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
                 conn.Dispose();
@@ -44,10 +38,10 @@ namespace Six.Wx.Repositoy.Dq
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
+        public IEnumerable<BooksSelect> GetBookById(int id)
         {
             string sql = $"select * from booksselect b left join picture p on b.id=p.booksselect.id where b.id='{id}'";
-            using (IDbConnection conn=new OracleConnection(connStr))
+            using (IDbConnection conn=new OracleConnection(ConfigHelper.ConnString))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
                 conn.Close();
@@ -60,10 +54,10 @@ namespace Six.Wx.Repositoy.Dq
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string name,int typeid)
+        public IEnumerable<BooksSelect> GetBookByName(string name,int typeid)
         {
             string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where BOOKSNAME like '%{name}%' and ClassifyId={typeid}";
-            using (IDbConnection conn=new OracleConnection(connStr))
+            using (IDbConnection conn=new OracleConnection(ConfigHelper.ConnString))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
                 conn.Close();
