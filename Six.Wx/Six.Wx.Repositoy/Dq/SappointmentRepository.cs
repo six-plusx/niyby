@@ -18,7 +18,6 @@ namespace Six.Wx.Repositoy.Dq
     /// </summary>
     public class SappointmentRepository:ISappointmentRepository
     {
-        /// <summary>
         /// 查询所有图书
         /// </summary>
         /// <returns></returns>

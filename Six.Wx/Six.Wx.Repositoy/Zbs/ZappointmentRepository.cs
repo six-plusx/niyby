@@ -21,8 +21,8 @@ namespace Six.Wx.Repositoy.Zbs
         /// <summary>
         /// 连接字符串
         /// </summary>
-        //public static string connStr = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
-        public static string connStr = ConfigHelper.ConnString;
+        //public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+        public static string connStr = ConfigHelper.conStr;
 
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Six.Wx.Repositoy.Zbs
             //string sql = "select * from BooksSelect b left join Picture p on b.id = p.booksselectid where b.State=0";
             string sql = "select * from BooksSelect b left join Picture p on b.id = p.booksselectid";
             //链接数据库
-            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
+            using (IDbConnection conn = new OracleConnection(connStr))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
                 conn.Dispose();
@@ -71,8 +71,10 @@ namespace Six.Wx.Repositoy.Zbs
             //链接数据库
             using (IDbConnection conn = new OracleConnection(connStr))
             {
-                var booksList = conn.Query<BooksSelect>(sql);
-                return booksList;
+                var booksSelectlist = conn.Query<BooksSelect>(sql);
+                conn.Dispose();
+                conn.Close();
+                return booksSelectlist;
             }
         }
     }

@@ -35,10 +35,10 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetOneAddresses")]
-        public IEnumerable<Address> GetOneAddresses(int id)
+        [ActionName("GetAddressesByid")]
+        public IEnumerable<Address> GetAddressesByid(int id)
         {
-            var classificationlist = zAddressRepository.GetOneAddresses(id);
+            var classificationlist = zAddressRepository.GetAddressesByid(id);
             return classificationlist;
         }
 
@@ -48,8 +48,8 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// <param name="address"></param>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("AddAddresses")]
-        public int AddAddresses()
+        [ActionName("Add")]
+        public int Add()
         {
             var address = new Address();
             address.Area = HttpContext.Current.Request["area"];
@@ -58,7 +58,7 @@ namespace Six.Wx.Api.Controllers.Zbs
             address.Photo = HttpContext.Current.Request["photo"];
             address.DefaultLoc = Convert.ToBoolean(HttpContext.Current.Request["defaultLoc"]) == true ? 1 : 0;
 
-            int i = zAddressRepository.AddAddresses(address);
+            int i = zAddressRepository.Add(address);
             return i;
         }
 
@@ -68,8 +68,8 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// <param name="address"></param>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("UpdateAddresses")]
-        public int UpdateAddresses()
+        [ActionName("Update")]
+        public int Update()
         {
             var address = new Address();
             address.Id = Convert.ToInt32(HttpContext.Current.Request["id"]);
@@ -79,7 +79,7 @@ namespace Six.Wx.Api.Controllers.Zbs
             address.Photo = HttpContext.Current.Request["photo"];
             address.DefaultLoc = Convert.ToBoolean(HttpContext.Current.Request["defaultLoc"]) == true ? 1 : 0;
 
-            int i = zAddressRepository.UpdateAddresses(address);
+            int i = zAddressRepository.Update(address);
             return i;
         }
 
@@ -89,10 +89,10 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// <param name="address"></param>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("DeleteAddresses")]
-        public int DeleteAddresses(int id)
+        [ActionName("Delete")]
+        public int Delete(int id)
         {
-            int i = zAddressRepository.DeleteAddresses(id);
+            int i = zAddressRepository.Delete(id);
             return i;
         }
     }

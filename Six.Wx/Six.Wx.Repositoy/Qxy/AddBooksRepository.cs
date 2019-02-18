@@ -21,7 +21,7 @@ namespace Six.Wx.Repositoy.Qxy
         /// <summary>
         /// 连接数据库字符串
         /// </summary>
-        public static string strConn = ConfigHelper.ConnString;
+        public static string strConn = ConfigHelper.conStr;
 
         /// <summary>
         /// 显示图书信息列表
@@ -47,9 +47,9 @@ namespace Six.Wx.Repositoy.Qxy
             string sql = string.Format("insert into BooksSelect(BooksName,Author,Price,Message,EnterNum,Catalogue，State)values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",booksSelect.BooksName,booksSelect.Author,booksSelect.Price,booksSelect.Message,booksSelect.EnterNum,booksSelect.Catalogue,booksSelect.State);
             using(IDbConnection conn=new OracleConnection(strConn))
             {
-                var i = conn.Execute(sql);
+                var addbooks = conn.Execute(sql);
                 conn.Close();
-                return i;
+                return addbooks;
             }
         }
     }
