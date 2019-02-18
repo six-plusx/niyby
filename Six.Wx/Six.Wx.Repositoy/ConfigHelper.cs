@@ -24,7 +24,7 @@ namespace Six.Wx.Repositoy
         #region 连接数据库字符串
         private static string _conStr = string.Empty;
 
-        public static string conStr
+        public static string ConnString
         {
             get
             {

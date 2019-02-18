@@ -19,7 +19,6 @@ namespace Six.Wx.Repositoy.Fdy
         /// 连接字符串语句
         /// </summary>
         //public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
-        public static string connStr = ConfigHelper.conStr;     //这句话是调用的封装类ConfigHelper
 
         /// <summary>
         /// 获取所有的图书信息
@@ -29,7 +28,7 @@ namespace Six.Wx.Repositoy.Fdy
         {
             string sql = "select * from BooksSelect b left join Picture p on b.id = p.booksselectid";
             //链接数据库
-            using (IDbConnection conn = new OracleConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.conStr))
             {
                 var bookLists = conn.Query<BooksSelect>(sql);
                 return bookLists;
@@ -44,7 +43,7 @@ namespace Six.Wx.Repositoy.Fdy
         {
             string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where BOOKSNAME like '%{name}%' and ClassifyId={typeid}";
             //链接数据库
-            using (IDbConnection conn = new OracleConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.conStr))
             {
                 var bookNames = conn.Query<BooksSelect>(sql);
                 return bookNames;

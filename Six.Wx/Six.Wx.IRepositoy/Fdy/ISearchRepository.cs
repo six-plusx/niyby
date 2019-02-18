@@ -14,13 +14,13 @@ namespace Six.Wx.IRepositoy.Fdy
         /// 获取所有的图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<BooksSelect> GetBooksSelects();
+        IEnumerable<BooksSelect> GetBooksSelects(); 
 
         /// <summary>
         /// 查询部分的图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<BooksSelect> GetSumBooksSelects(string name, int typeid);
+        IEnumerable<BooksSelect> GetSumBooksSelects(string name, int typeid); 
 
         /// <summary>
         /// 查询一条的图书信息
