@@ -39,7 +39,6 @@ namespace Six.Wx.IRepositoy.Zbs
         /// <returns></returns>
         int UpdateAddresses(Address address);
 
-
         /// <summary>
         /// 删除一条收货地址
         /// </summary>
