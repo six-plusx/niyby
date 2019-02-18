@@ -53,6 +53,7 @@ Page({
 //确认录入
   addBook:function(){
     //书名
+    console.log("书名" + this.data.booknames)
     if (this.data.booknames == '') {
       setTimeout(() => {
         this.setData(
@@ -62,6 +63,7 @@ Page({
       }, 100)
       return;
     }
+
 //作者
     if (this.data.authors == '') {
       setTimeout(() => {
@@ -113,26 +115,6 @@ Page({
       return;
     }
 
-      wx.showToast({
-        title: '录入成功',
-        icon: 'success',
-       duration: 5000
-     })
-
-    //1秒后跳转
-    setTimeout(function () {
-      wx.reLaunch({
-        url: '../qstartentering/startentering',
-      })
-    }, 1000)
-    wx.switchTab({
-      url: '../qstartentering/startentering',
-    })
-  
-  },
-
-//添加按钮
-  addBook:function(e){
     var that = this;
     wx.request({
       url: 'http://localhost:49590/api/AddBooks/AddBooks',
@@ -147,12 +129,35 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        that.setData({
-          hasList: true,
-          carts: res.data
-        })
+        if (res = 1) {
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 1000
+          })
+        }
+        else {
+          wx.showToast({
+            title: '保存失败',
+            icon: 'fail',
+            duration: 1000
+          })
+          return;
+        }
       }
+
     })
+
+    //1秒后跳转
+    setTimeout(function () {
+      wx.reLaunch({
+        url: '../qstartentering/startentering',
+      })
+    }, 1000)
+    wx.switchTab({
+      url: '../qstartentering/startentering',
+    })
+  
   },
 
 
