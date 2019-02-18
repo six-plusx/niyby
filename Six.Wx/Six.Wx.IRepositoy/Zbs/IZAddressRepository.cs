@@ -23,27 +23,27 @@ namespace Six.Wx.IRepositoy.Zbs
         /// 返回一条的收货地址
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Address> GetOneAddresses(int id);
+        IEnumerable<Address> GetAddressesByid(int id);
 
         /// <summary>
         /// 添加一条收货地址
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
-        int AddAddresses(Address address);
+        int Add(Address address);
 
         /// <summary>
         /// 修改一条收货地址
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
-        int UpdateAddresses(Address address);
+        int Update(Address address);
 
         /// <summary>
         /// 删除一条收货地址
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
-        int DeleteAddresses(int id);
+        int Delete(int id);
     }
 }

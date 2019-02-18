@@ -21,7 +21,7 @@ namespace Six.Wx.Repositoy.Dq
         /// <summary>
         /// 连接字符串
         /// </summary>
-        public static string connStr = ConfigHelper.ConnString;
+        public static string connStr = ConfigHelper.conStr;
 
         /// <summary>
         /// 查询所有图书

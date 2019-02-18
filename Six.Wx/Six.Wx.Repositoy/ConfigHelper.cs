@@ -28,8 +28,8 @@ namespace Six.Wx.Repositoy
         {
             get
             {
-                _conStr = GetConfigValue("ConnString");
-                //_conStr = ConfigurationManager.AppSettings["ConnString"];
+                _conStr = GetConfigValue("conStr");
+                //_conStr = ConfigurationManager.AppSettings["conStr"];
                 return _conStr;
             }
         }

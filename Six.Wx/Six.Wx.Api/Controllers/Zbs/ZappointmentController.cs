@@ -21,10 +21,10 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetBooksSelects")]
-        public IEnumerable<BooksSelect> GetBooksSelects()
+        [ActionName("GetAllBooks")]
+        public IEnumerable<BooksSelect> GetAllBooks()
         {
-            var classificationlist = zappointment.GetBooksSelects();
+            var classificationlist = zappointment.GetAllBooks();
             return classificationlist;
         }
 
@@ -33,10 +33,10 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetSumBooksSelects")]
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string names, int typeid)
+        [ActionName("GetBooksSelectsByName")]
+        public IEnumerable<BooksSelect> GetBooksSelectsByName(string names, int typeid)
         {
-            var classificationlist = zappointment.GetSumBooksSelects(names, typeid);
+            var classificationlist = zappointment.GetBooksSelectsByName(names, typeid);
             return classificationlist;
         }
 
@@ -45,10 +45,10 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetOneBooksSelects")]
-        public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
+        [ActionName("GetBooksSelectsById")]
+        public IEnumerable<BooksSelect> GetBooksSelectsById(int id)
         {
-            var classificationlist = zappointment.GetOneBooksSelects(id);
+            var classificationlist = zappointment.GetBooksSelectsById(id);
             return classificationlist;
         }
     }

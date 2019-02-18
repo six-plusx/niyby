@@ -20,7 +20,7 @@ namespace Six.Wx.Repositoy.Qxy
         /// <summary>
         /// 连接数据库字符串
         /// </summary>
-        public static string strConn = ConfigHelper.ConnString;
+        public static string strConn = ConfigHelper.conStr;
 
 
         /// <summary>
