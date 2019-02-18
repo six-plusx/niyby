@@ -69,7 +69,7 @@ Page({
 
     var that = this;
     wx.request({
-      url: api.API_HOST + '/Zappointment/GetOneBooksSelects?id=' + this.data.id,
+      url: api.API_HOST + '/Zappointment/GetBooksById?id=' + this.data.id,
       method: 'get',
       success: function (res) {
         that.setData({

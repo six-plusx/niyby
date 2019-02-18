@@ -22,19 +22,18 @@ namespace Six.Wx.Repositoy.Zbs
         /// 连接字符串
         /// </summary>
         //public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
-        public static string connStr = ConfigHelper.conStr;
 
 
         /// <summary>
         /// 查询所有的图书信息
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<BooksSelect> GetBooksSelects()
+        public IEnumerable<BooksSelect> GetAllBooks()
         {
             //string sql = "select * from BooksSelect b left join Picture p on b.id = p.booksselectid where b.State=0";
             string sql = "select * from BooksSelect b left join Picture p on b.id = p.booksselectid";
             //链接数据库
-            using (IDbConnection conn = new OracleConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
                 conn.Dispose();
@@ -47,12 +46,12 @@ namespace Six.Wx.Repositoy.Zbs
         /// 查询部分的图书信息
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string name, int typeid)
+        public IEnumerable<BooksSelect> GetBooksByName(string name, int typeid)
         {
             //string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where b.State=0 and BOOKSNAME like '%{name}%' and ClassifyId={typeid}";
             string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where BOOKSNAME like '%{name}%' and ClassifyId={typeid}";
             //链接数据库
-            using (IDbConnection conn = new OracleConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
                 conn.Dispose();
@@ -65,11 +64,11 @@ namespace Six.Wx.Repositoy.Zbs
         /// 查询一条的图书信息
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
+        public IEnumerable<BooksSelect> GetBooksById(int id)
         {
             string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid left join bookscontent bc on b.id=bc.booksselectid left join booksevaluate be on b.id=be.booksselectid where b.id ='{id}'";
             //链接数据库
-            using (IDbConnection conn = new OracleConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 var booksSelectlist = conn.Query<BooksSelect>(sql);
                 conn.Dispose();

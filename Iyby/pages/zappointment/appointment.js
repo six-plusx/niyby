@@ -34,7 +34,7 @@ Page({
   queryBooks: function (e) {
     var that=this;
     wx.request({
-      url: api.API_HOST +'/Zappointment/GetSumBooksSelects',
+      url: api.API_HOST +'/Zappointment/GetBooksByName',
       data:{
         names:this.data.name,
         typeid:this.data.typeid,
@@ -110,7 +110,7 @@ Page({
 
     // 开始就按条件查询
     wx.request({
-      url: api.API_HOST +'/Zappointment/GetSumBooksSelects',
+      url: api.API_HOST +'/Zappointment/GetBooksByName',
       data: {
         names: this.data.name,
         typeid: this.data.typeid,
@@ -180,7 +180,7 @@ Page({
   fetchData: function (typeid) {  //查询数据
     var that = this;
     wx.request({
-      url: api.API_HOST +'/Zappointment/GetSumBooksSelects',
+      url: api.API_HOST +'/Zappointment/GetBooksByName',
       data: {
         names: this.data.name,
         typeid:typeid,

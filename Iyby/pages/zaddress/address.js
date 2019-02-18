@@ -95,7 +95,7 @@ Page({
 
     var that = this;
     wx.request({
-      url: api.API_HOST + '/ZAddress/AddAddresses',
+      url: api.API_HOST + '/ZAddress/Add',
       method: 'GET',
       data:{
         area: this.data.region,
