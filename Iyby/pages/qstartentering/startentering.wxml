@@ -3,17 +3,22 @@
     <view class="weui-cells__title">录入方式</view>
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_switch">
+
             <view class="weui-cell__bd">扫码录入:</view>
             <view class="weui-cell__ft">
-                <switch checked bindchange="screenInput" />
+                <switch  bindchange="EwmsInput" checked="{{EwmsChecked}}" type='switch'/>
             </view>
+
         </view>
+
         <view class="weui-cell weui-cell_switch">
             <view class="weui-cell__bd">连续录入:</view>
             <view class="weui-cell__ft">
-                <switch checked />
+                <switch bindchange="continuousInput" checked="{{continuousChecked}}" type='switch'/>
             </view>
+
         </view>
+
     </view>
     <view class="weui-btn-area">
        <navigator url="../qaddbooks/qaddbooks">    

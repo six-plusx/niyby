@@ -57,15 +57,6 @@
                     <input class="weui-input" placeholder="请输入图书目录" bindchange='catalogue'/>
                 </view>
             </view>
-
-             <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                    <view class="weui-label">图书状态:</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入图书状态" bindchange='state'/>
-                </view>
-            </view>
         </view>
        <view class="weui-btn-area">       
  <button class="weui-btn" type="primary" bindtap="addBook">确定录入</button>
