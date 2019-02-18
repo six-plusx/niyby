@@ -18,18 +18,13 @@ namespace Six.Wx.Repositoy.Qxy
     public class AleadyBooksRepository : IAleadyBooksRepository
     {
         /// <summary>
-        /// 连接数据库字符串
-        /// </summary>
-        public static string strConn = ConfigHelper.conStr;
-
-        /// <summary>
         /// 添加图书
         /// </summary>
         /// <returns></returns>
         public int AddBooks(BooksSelect booksSelect)
         {
             string sql = string.Format("insert into BooksSelect(BooksName,Author,Price,Message,EnterNum,Catalogue，State)values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", booksSelect.BooksName, booksSelect.Author, booksSelect.Price, booksSelect.Message, booksSelect.EnterNum, booksSelect.Catalogue, booksSelect.State);
-            using (IDbConnection conn = new OracleConnection(strConn))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 var addbooks = conn.Execute(sql);
                 conn.Close();
@@ -41,10 +36,10 @@ namespace Six.Wx.Repositoy.Qxy
         /// 显示图书信息列表
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<BooksSelect> GetBooksSelects()
+        public IEnumerable<BooksSelect> GetBooksSelectlist()
         {
             string sql = "select * from BooksSelect";
-            using (IDbConnection conn = new OracleConnection(strConn))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 var bookslist = conn.Query<BooksSelect>(sql);
                 conn.Close();
@@ -57,10 +52,10 @@ namespace Six.Wx.Repositoy.Qxy
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public IEnumerable<BooksSelect>GetSumBooksSelects(string name)
+        public IEnumerable<BooksSelect> GetBooksSelects(string name)
         {
             string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where BOOKSNAME like '%{name}%'";
-            using (IDbConnection conn = new OracleConnection(strConn))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 var bookslist = conn.Query<BooksSelect>(sql);
                 conn.Close();
@@ -68,10 +63,10 @@ namespace Six.Wx.Repositoy.Qxy
             }
         }
 
-        public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
+        public IEnumerable<BooksSelect> GetBooksById(int id)
         {
             string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where b.id ='{id}'";
-            using(IDbConnection conn=new OracleConnection(strConn))
+            using(IDbConnection conn=new OracleConnection(ConfigHelper.ConnString))
             {
                 var bookslist = conn.Query<BooksSelect>(sql);
                 conn.Close();

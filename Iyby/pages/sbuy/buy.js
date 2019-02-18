@@ -32,7 +32,7 @@ Page({
   queryBooks: function (e) {
     var that = this;
     wx.request({
-      url: 'http://localhost:49590/api/Sappointment/GetSumBooksSelects',
+      url: 'http://localhost:49590/api/Sappointment/GetBookByName',
       data: {
         names: this.data.name,
         typeid: this.data.typeid,
@@ -95,7 +95,7 @@ Page({
 
     var that = this;
     wx.request({
-      url: 'http://localhost:49590/api/Sappointment/GetBooksSelects',
+      url: 'http://localhost:49590/api/Sappointment/GetAllBook',
       method: 'GET',
       success: function (allres) {
         that.setData({
@@ -161,7 +161,7 @@ Page({
   fetchData: function (typeid) {  //查询数据
     var that = this;
     wx.request({
-      url: 'http://localhost:49590/api/Sappointment/GetSumBooksSelects',
+      url: 'http://localhost:49590/api/Sappointment/GetBookByName',
       data: {
         names: this.data.name,
         typeid: typeid,
