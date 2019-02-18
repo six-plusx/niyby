@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    EwmsChecked:false,
+    continuousChecked:true
 
   },
 
@@ -62,5 +64,56 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+//连续录入
+  continuousInput: function (e) {
+    var that = this;
+    console.log(e.detail.value);
+    if (e.detail.value == true) {
+      that.setData({
+        EwmsChecked: false,
+        continuousChecked: true
+      })
+    }
+    else {
+      that.setData({
+        EwmsChecked: true,
+        continuousChecked: false
+      })
+    }
+  },
+
+//扫码录入
+  EwmsInput:function(e){
+    var that=this;
+    if (e.detail.value==true){
+      that.setData({
+        EwmsChecked: true,
+        continuousChecked: false
+      })
+    }
+    else{
+      that.setData({
+        EwmsChecked: false,
+        continuousChecked: true
+      })
+    }
+    
+  },
+
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
