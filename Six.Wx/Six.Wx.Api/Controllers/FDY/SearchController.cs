@@ -23,9 +23,9 @@ namespace Six.Wx.Api.Controllers.FDY
         /// <returns></returns>
         [HttpGet]
         [ActionName("GetBooksSelects")]
-        public IEnumerable<BooksSelect> GetBooksSelects()
+        public IEnumerable<BooksSelect> GetAllBooks()
         {
-            var bookLists = searchs.GetBooksSelects();
+            var bookLists = searchs.GetAllBooks();
             return bookLists;
         }
 
@@ -35,9 +35,9 @@ namespace Six.Wx.Api.Controllers.FDY
         /// <returns></returns>
         [HttpGet]
         [ActionName("GetSumBooksSelects")]
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string name, int typeid)
+        public IEnumerable<BooksSelect> GetBookByName(string name, int typeid)
         {
-            var bookNames = searchs.GetSumBooksSelects(name,typeid);
+            var bookNames = searchs.GetBookByName(name,typeid);
             return bookNames;
         }
 
@@ -47,9 +47,9 @@ namespace Six.Wx.Api.Controllers.FDY
         /// <returns></returns>
         [HttpGet]
         [ActionName("GetOneBooksSelects")]
-        public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
+        public IEnumerable<BooksSelect> GetBookByID(int id)
         {
-            var bookID = searchs.GetOneBooksSelects(id);
+            var bookID = searchs.GetBookByID(id);
             return bookID;
         }
     }
