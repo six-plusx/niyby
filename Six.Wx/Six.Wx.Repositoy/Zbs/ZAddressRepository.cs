@@ -21,8 +21,8 @@ namespace Six.Wx.Repositoy.Zbs
         /// <summary>
         /// 链接字符串
         /// </summary>
-        //public static string connStr = ConfigurationManager.ConnectionStrings["ConnString"].ToString();
-        public static string connStr = ConfigHelper.ConnString;
+        //public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ToString();
+        public static string connStr = ConfigHelper.conStr;
 
         /// <summary>
         /// 返回所有的收货地址

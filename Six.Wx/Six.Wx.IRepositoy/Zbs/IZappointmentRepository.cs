@@ -17,18 +17,18 @@ namespace Six.Wx.IRepositoy.Zbs
         /// 查询所有的图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<BooksSelect> GetBooksSelects();
+        IEnumerable<BooksSelect> GetAllBooks();
 
         /// <summary>
         /// 查询部分的图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<BooksSelect> GetSumBooksSelects(string name, int typeid);
+        IEnumerable<BooksSelect> GetBooksSelectsByName(string name, int typeid);
 
         /// <summary>
         /// 查询一条的图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<BooksSelect> GetOneBooksSelects(int id);
+        IEnumerable<BooksSelect> GetBooksSelectsById(int id);
     }
 }
