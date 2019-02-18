@@ -1,0 +1,60 @@
+<!--pages/qaddbooks/qaddbooks.wxml-->
+ <form>
+ <view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view> 
+    <view wx:for="{{carts}}" wx:key="{{index}}" bindtap='navigatordetails' data-aid="{{item.Id}}">
+        <view class="weui-cells__title">图书基本信息:</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">书名:</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入书名" value='{{item.BooksName}}'/>
+                </view>
+            </view>
+
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">作者:</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入作者" value='{{item.Author}}'/>
+                </view>
+            </view>
+
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">价格:</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入价格" value='{{item.Price}}'/>
+                </view>
+            </view>
+
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">出版社:</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入出版社" value='{{item.Message}}'/>
+                </view>
+            </view>
+
+             <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">录入数量:</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入录入数量" value='{{item.LendNum}}'/>
+                </view>
+            </view>
+        </view>
+       <view class="weui-btn-area">     
+            <button wx:if="{{item.State==1}}" class="" bindtap='closing1' data-aid="{{item.Id}}">确定预约</button>
+          
+            <button wx:if="{{item.State==2}}" class="" bindtap='closing2' data-aid="{{item.Id}}">确定购买</button>
+          
+            <button wx:if="{{item.State==3}}" class="" bindtap='closing3' data-aid="{{item.Id}}">确定录入</button>
+      </view>
+  </view>
+</form>
