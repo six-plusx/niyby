@@ -17,13 +17,24 @@ namespace Six.Wx.Api.Controllers.QXY
         public IAleadyBooksRepository aleadyBooksRepository { get; set; }
 
         /// <summary>
+        /// 添加图书
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public int AddBooks(BooksSelect booksSelect)
+        {
+            var books = aleadyBooksRepository.AddBooks(booksSelect);
+            return books;
+        }
+
+        /// <summary>
         /// 查询所有的图书信息
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<BooksSelect> GetBooksSelects()
+        public IEnumerable<BooksSelect> GetBooksSelectlist()
         {
-            var bookslist = aleadyBooksRepository.GetBooksSelects();
+            var bookslist = aleadyBooksRepository.GetBooksSelectlist();
             return bookslist;
         }
 
@@ -32,9 +43,9 @@ namespace Six.Wx.Api.Controllers.QXY
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string names)
+        public IEnumerable<BooksSelect> GetBooksSelects(string names)
         {
-            var bookslist = aleadyBooksRepository.GetSumBooksSelects(names);
+            var bookslist = aleadyBooksRepository.GetBooksSelects(names);
             return bookslist;
         }
 
@@ -43,9 +54,9 @@ namespace Six.Wx.Api.Controllers.QXY
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
+        public IEnumerable<BooksSelect> GetBooksById(int id)
         {
-            var bookslist = aleadyBooksRepository.GetOneBooksSelects(id);
+            var bookslist = aleadyBooksRepository.GetBooksById(id);
             return bookslist;
         }
 

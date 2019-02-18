@@ -22,6 +22,20 @@ namespace Six.Wx.Repositoy.Qxy
         /// </summary>
         public static string strConn = ConfigHelper.conStr;
 
+        /// <summary>
+        /// 添加图书
+        /// </summary>
+        /// <returns></returns>
+        public int AddBooks(BooksSelect booksSelect)
+        {
+            string sql = string.Format("insert into BooksSelect(BooksName,Author,Price,Message,EnterNum,Catalogue，State)values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", booksSelect.BooksName, booksSelect.Author, booksSelect.Price, booksSelect.Message, booksSelect.EnterNum, booksSelect.Catalogue, booksSelect.State);
+            using (IDbConnection conn = new OracleConnection(strConn))
+            {
+                var addbooks = conn.Execute(sql);
+                conn.Close();
+                return addbooks;
+            }
+        }
 
         /// <summary>
         /// 显示图书信息列表
