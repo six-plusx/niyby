@@ -45,7 +45,6 @@
     <Compile Include="Dq\ISappointmentRepository.cs" />
     <Compile Include="Fdy\ISearchRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Qxy\IAddBooksRepository.cs" />
     <Compile Include="Qxy\IAleadyBooksRepository.cs" />
     <Compile Include="Zbs\IZAddressRepository.cs" />
     <Compile Include="Zbs\IZappointmentRepository.cs" />

@@ -54,7 +54,7 @@ Page({
     console.log("传递进来的(要查询的预约图书)ID：" + id);
     var that=this;
     wx.request({
-      url: api.API_HOST+'/Zappointment/GetOneBooksSelects?id='+id,
+      url: api.API_HOST +'/Zappointment/GetBooksById?id='+id,
       method:'get',
       success:function(res){
         that.setData({

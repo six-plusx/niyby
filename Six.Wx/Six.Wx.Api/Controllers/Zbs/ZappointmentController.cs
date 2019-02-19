@@ -33,10 +33,10 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetBooksSelectsByName")]
-        public IEnumerable<BooksSelect> GetBooksSelectsByName(string names, int typeid)
+        [ActionName("GetBooksByName")]
+        public IEnumerable<BooksSelect> GetBooksByName(string names, int typeid)
         {
-            var classificationlist = zappointment.GetBooksSelectsByName(names, typeid);
+            var classificationlist = zappointment.GetBooksByName(names, typeid);
             return classificationlist;
         }
 
@@ -45,10 +45,10 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetBooksSelectsById")]
-        public IEnumerable<BooksSelect> GetBooksSelectsById(int id)
+        [ActionName("GetBooksById")]
+        public IEnumerable<BooksSelect> GetBooksById(int id)
         {
-            var classificationlist = zappointment.GetBooksSelectsById(id);
+            var classificationlist = zappointment.GetBooksById(id);
             return classificationlist;
         }
     }

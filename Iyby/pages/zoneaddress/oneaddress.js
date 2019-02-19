@@ -20,7 +20,7 @@ Page({
     console.log("传递进来的(要查询的收货地址)ID：" + this.data.id);
     var that = this;
     wx.request({
-      url: api.API_HOST + '/ZAddress/GetOneAddresses?id=' + this.data.id,
+      url: api.API_HOST + '/ZAddress/GetAddressesByid?id=' + this.data.id,
       method: 'get',
       success: function (res) {
         that.setData({
@@ -109,7 +109,7 @@ Page({
 
     var that = this;
     wx.request({
-      url: api.API_HOST + '/ZAddress/UpdateAddresses',
+      url: api.API_HOST + '/ZAddress/Update',
       method: 'GET',
       data: {
         id: this.data.id,
@@ -155,7 +155,7 @@ Page({
           //用户点击了确定
           var that = this;
           wx.request({
-            url: api.API_HOST + '/ZAddress/DeleteAddresses?id=' + e.currentTarget.dataset.aid,
+            url: api.API_HOST + '/ZAddress/Delete?id=' + e.currentTarget.dataset.aid,
             method: 'GET',
             success: function (res) {
               if (res = 1) {

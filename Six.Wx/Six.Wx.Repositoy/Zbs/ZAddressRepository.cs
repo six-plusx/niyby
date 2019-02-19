@@ -22,7 +22,6 @@ namespace Six.Wx.Repositoy.Zbs
         /// 链接字符串
         /// </summary>
         //public static string connStr = ConfigurationManager.ConnectionStrings["conStr"].ToString();
-        public static string connStr = ConfigHelper.conStr;
 
         /// <summary>
         /// 返回所有的收货地址
@@ -31,7 +30,7 @@ namespace Six.Wx.Repositoy.Zbs
         public IEnumerable<Address> GetAllAddresses()
         {
             string sql = "select * from loc";
-            using (IDbConnection conn = new OracleConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 var addreslist = conn.Query<Address>(sql);
                 conn.Close();
@@ -43,10 +42,10 @@ namespace Six.Wx.Repositoy.Zbs
         /// 返回一条的收货地址
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Address> GetOneAddresses(int id)
+        public IEnumerable<Address> GetAddressesByid(int id)
         {
             string sql = "select * from loc where id=" + id;
-            using (IDbConnection conn = new OracleConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 var addreslist = conn.Query<Address>(sql);
                 conn.Close();
@@ -59,9 +58,9 @@ namespace Six.Wx.Repositoy.Zbs
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
-        public int AddAddresses(Address address)
+        public int Add(Address address)
         {
-            using (IDbConnection conn = new OracleConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 string sql = "";
                 int i = 0;
@@ -88,9 +87,9 @@ namespace Six.Wx.Repositoy.Zbs
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
-        public int UpdateAddresses(Address address)
+        public int Update(Address address)
         {
-            using (IDbConnection conn = new OracleConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 string sql = "";
                 int i = 0;
@@ -117,9 +116,9 @@ namespace Six.Wx.Repositoy.Zbs
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
-        public int DeleteAddresses(int id)
+        public int Delete(int id)
         {
-            using (IDbConnection conn = new OracleConnection(connStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 string sql = $"delete from loc where id='{id}'";
                 int i = conn.Execute(sql);

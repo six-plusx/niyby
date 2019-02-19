@@ -13,22 +13,29 @@ namespace Six.Wx.IRepositoy.Qxy
     public interface IAleadyBooksRepository
     {
         /// <summary>
+        /// 添加图书
+        /// </summary>
+        /// <param name="booksSelect"></param>
+        /// <returns></returns>
+        int AddBooks(BooksSelect booksSelect);
+
+        /// <summary>
         /// 返回所有图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<BooksSelect> GetBooksSelects();
+        IEnumerable<BooksSelect> GetBooksSelectlist();
         //List<BooksSelect> GetBooksSelects();
 
         /// <summary>
         /// 查询部分的图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<BooksSelect> GetSumBooksSelects(string name);
+        IEnumerable<BooksSelect> GetBooksSelects(string name);
 
         /// <summary>
         /// 查询一条的图书信息
         /// </summary>
         /// <returns></returns>
-        IEnumerable<BooksSelect> GetOneBooksSelects(int id);
+        IEnumerable<BooksSelect> GetBooksById(int id);
     }
 }

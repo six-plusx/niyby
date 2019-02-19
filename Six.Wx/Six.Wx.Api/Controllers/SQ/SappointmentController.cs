@@ -26,10 +26,10 @@ namespace Six.Wx.Api.Controllers.SQ
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetBooksSelects")]
-        public IEnumerable<BooksSelect> GetBooksSelects()
+        [ActionName("GetAllBook")]
+        public IEnumerable<BooksSelect> GetAllBook()
         {
-            var classificationlist = sappointment.GetBooksSelects();
+            var classificationlist = sappointment.GetAllBook();
             return classificationlist;
         }
 
@@ -38,10 +38,10 @@ namespace Six.Wx.Api.Controllers.SQ
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetSumBooksSelects")]
-        public IEnumerable<BooksSelect> GetSumBooksSelects(string names, int typeid)
+        [ActionName("GetBookByName")]
+        public IEnumerable<BooksSelect> GetBookByName(string names, int typeid)
         {
-            var classificationlist = sappointment.GetSumBooksSelects(names, typeid);
+            var classificationlist = sappointment.GetBookByName(names, typeid);
             return classificationlist;
         }
 
@@ -50,10 +50,10 @@ namespace Six.Wx.Api.Controllers.SQ
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetOneBooksSelects")]
-        public IEnumerable<BooksSelect> GetOneBooksSelects(int id)
+        [ActionName("GetBookById")]
+        public IEnumerable<BooksSelect> GetBookById(int id)
         {
-            var classificationlist = sappointment.GetOneBooksSelects(id);
+            var classificationlist = sappointment.GetBookById(id);
             return classificationlist;
         }
     }
