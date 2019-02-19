@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Six.Wx.IRepositoy.Zbs;
 using Six.Wx.Model;
+using Six.Wx.Common;
 
 namespace Six.Wx.Api.Controllers.Zbs
 {
@@ -44,6 +45,7 @@ namespace Six.Wx.Api.Controllers.Zbs
         /// 查询一条图书信息
         /// </summary>
         /// <returns></returns>
+        [RequestAuthorize]
         [HttpGet]
         [ActionName("GetBooksById")]
         public IEnumerable<BooksSelect> GetBooksById(int id)

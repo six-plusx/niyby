@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 
-namespace Six.Wx.Repositoy
+namespace Six.Wx.Common
 {
     public static class ConfigHelper
     {
@@ -33,6 +33,39 @@ namespace Six.Wx.Repositoy
                 return _conStr;
             }
         }
+        #endregion
+
+        #region  /// Redis服务器地址及端口号
+
+        private static string _redisServiceUrl = string.Empty;
+
+        /// <summary>
+        /// Redis服务器地址 
+        /// </summary>
+        public static string RedisServiceUrl
+        {
+            get
+            {
+                _redisServiceUrl = GetConfigValue("RedisServiceUrl");
+                // _redisServiceUrl = ConfigurationManager.AppSettings["RedisServiceUrl"];
+                return _redisServiceUrl;
+            }
+        }
+
+        private static int _redisServicePortNum = 0;
+
+        /// <summary>
+        /// Redis服务器端口号
+        /// </summary>
+        public static int RedisServicePortNum
+        {
+            get
+            {
+                _redisServicePortNum = int.Parse(GetConfigValue("RedisServicePortNum"));
+                return _redisServicePortNum;
+            }
+        }
+
         #endregion
     }
 }

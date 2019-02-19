@@ -94,52 +94,52 @@ Page({
     console.log('验证结束');
 
     var that = this;
-    wx.request({
-      url: api.API_HOST + '/ZAddress/Add',
-      method: 'GET',
-      data:{
-        area: this.data.region,
-        loction: this.data.inputsite,
-        consignee: this.data.inputperson,
-        photo: this.data.inputphone,
-        defaultLoc: this.data.switchloc,
+    wx.getStorage({ // 首先从微信缓存中获取token值
+      key: 'token',
+      success: function(res) {
+        wx.request({
+          url: api.API_HOST + '/ZAddress/Add',
+          method: 'GET',
+          data: {
+            area: this.data.region,
+            loction: this.data.inputsite,
+            consignee: this.data.inputperson,
+            photo: this.data.inputphone,
+            defaultLoc: this.data.switchloc,
+          },
+          success: function (res) {
+            if (res = 1) {
+              wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 1000
+              })
+            }
+            else {
+              wx.showToast({
+                title: '保存失败',
+                icon: 'fail',
+                duration: 1000
+              })
+              return;
+            }
+          }
+        })
+        //1秒后跳转
+        setTimeout(function () {
+          wx.reLaunch({
+            url: '../zsite/site',
+          })
+        }, 1000)
       },
-      success: function (res) {
-        if(res=1)
-        {
-          wx.showToast({
-            title: '成功',
-            icon: 'success',
-            duration: 1000
-          })
-        }
-        else
-        {
-          wx.showToast({
-            title: '保存失败',
-            icon: 'fail',
-            duration: 1000
-          })
-          return;
-        }        
-      }
+
+      ohShitfadeOut() {
+        var fadeOutTimeout = setTimeout(() => {
+          this.setData({ popErrorMsg: '' });
+          clearTimeout(fadeOutTimeout);
+        }, 3000);
+      },
     })
-
-   
-
-    //1秒后跳转
-    setTimeout(function () {
-      wx.reLaunch({
-        url: '../zsite/site',
-      })
-    }, 1000)
-  },
-
-  ohShitfadeOut() {
-    var fadeOutTimeout = setTimeout(() => {
-      this.setData({ popErrorMsg: '' });
-      clearTimeout(fadeOutTimeout);
-    }, 3000);
   },
 
   /**

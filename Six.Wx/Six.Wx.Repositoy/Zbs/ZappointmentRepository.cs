@@ -10,6 +10,9 @@ using Six.Wx.Model;
 using Dapper;
 using System.Data;
 using System.Data.OracleClient;
+using Six.Wx.Common;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace Six.Wx.Repositoy.Zbs
 {
@@ -76,5 +79,43 @@ namespace Six.Wx.Repositoy.Zbs
                 return booksSelectlist;
             }
         }
+
+        /// <summary>
+        /// 获取微信会话密钥
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        //public Personal Logins(string code)
+        //{
+        //    using (UnityContext uc = new UnityContext())
+        //    {
+        //        Personal personal = new Personal();
+        //        HttpClient httpclient = new HttpClient();
+
+        //        //登陆公众平台 开发->基本配置中的开发者ID(AppID)和 开发者密码(AppSecret)
+        //        string appid = "wx9cfd1269436269a8";//开发者ID
+        //        string secret = "4b62a45558a4aa06e717c73a2b3229ef";//开发者秘钥
+        //        httpclient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+        //        HttpResponseMessage response = httpclient.PostAsync("https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&js_code=" + code.ToString() + "&grant_type=authorization_code", null).Result;
+        //        var result = "";
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            result = response.Content.ReadAsStringAsync().Result;
+        //        }
+        //        httpclient.Dispose();
+        //        var results = JsonConvert.DeserializeObject<Personal>(result);
+        //        personal.OpenId = results.OpenId;//用户唯一标识
+        //        personal.session_key = results.session_key;//密钥
+        //        var client = uc.Personal.Where(m => m.OpenId.Equals(personal.OpenId)).FirstOrDefault();//判断是否为已注册用户
+        //        if (client == null)
+        //        {
+        //            uc.Personal.Add(personal);
+        //            uc.SaveChanges();
+        //        }
+        //        RedisHelper.Set<Personal>(personal.session_key, personal, DateTime.Now.AddHours(10));
+        //        return personal;
+        //    }
+        //}
     }
 }

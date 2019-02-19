@@ -23,15 +23,42 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.request({
-      url: api.API_HOST +'/ZAddress/GetAllAddresses',
-      method: 'GET',
+    wx.getStorage({
+      key: 'token',
       success: function (res) {
-        that.setData({
-          hasList: true,
-          carts: res.data
+        wx.request({
+          url: api.API_HOST + '/ZAddress/GetAllAddresses',
+          method: 'GET',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          success: function (res) {
+            that.setData({
+              hasList: true,
+              carts: res.data
+            })
+          }
         })
-      }
+      },
+      fail: function (res) {
+        console.log('没有登录，请登录');
+        wx.showModal({
+          title:'提示',
+          content:'请登录后使用',
+          success:function(sm){
+            if(sm.confirm){//确定登录
+
+            }
+            else{
+              wx.reLaunch({
+                url: '../zindex/index',
+              })
+            }
+          }
+        })
+      },
+      complete: function (res) { },
     })
   },
 

@@ -35,5 +35,10 @@ namespace Six.Wx.Model
         /// 头像路径
         /// </summary>
         public string HeadPath { get; set; }
+
+        /// <summary>
+        /// 用户令牌
+        /// </summary>
+        public string session_key { get; set; }
     }
 }
