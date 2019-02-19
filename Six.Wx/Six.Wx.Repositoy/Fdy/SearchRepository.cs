@@ -28,7 +28,7 @@ namespace Six.Wx.Repositoy.Fdy
         {
             string sql = "select * from BooksSelect b left join Picture p on b.id = p.booksselectid";
             //链接数据库
-            using (IDbConnection conn = new OracleConnection(ConfigHelper.conStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 var bookLists = conn.Query<BooksSelect>(sql);
                 return bookLists;
@@ -43,7 +43,7 @@ namespace Six.Wx.Repositoy.Fdy
         {
             string sql = $"select * from BooksSelect b left join Picture p on b.id = p.booksselectid where BOOKSNAME like '%{name}%' and ClassifyId={typeid}";
             //链接数据库
-            using (IDbConnection conn = new OracleConnection(ConfigHelper.conStr))
+            using (IDbConnection conn = new OracleConnection(ConfigHelper.ConnString))
             {
                 var bookNames = conn.Query<BooksSelect>(sql);
                 return bookNames;
