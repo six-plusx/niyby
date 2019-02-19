@@ -53,16 +53,25 @@ Page({
     var id = parseInt(options.id);
     console.log("传递进来的(要查询的预约图书)ID：" + id);
     var that=this;
-    wx.request({
-      url: api.API_HOST +'/Zappointment/GetBooksById?id='+id,
-      method:'get',
-      success:function(res){
-        that.setData({
-          hasList:true,
-          carts:res.data
+    wx.getStorage({
+      key: 'token',
+      success: function(res) {
+        wx.request({
+          url: api.API_HOST + '/Zappointment/GetBooksById?id=' + id,
+          method: 'get',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          success: function (res) {
+            that.setData({
+              hasList: true,
+              carts: res.data
+            })
+          }
         })
-      }
-    })
+      },
+    })    
   },
 
   /**

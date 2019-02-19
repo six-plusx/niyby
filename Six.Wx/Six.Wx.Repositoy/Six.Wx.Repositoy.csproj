@@ -35,6 +35,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\项目文档\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -47,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigHelper.cs" />
     <Compile Include="Dq\SappointmentRepository.cs" />
     <Compile Include="Fdy\SearchRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +56,10 @@
     <Compile Include="Zbs\ZappointmentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Six.Wx.Common\Six.Wx.Common.csproj">
+      <Project>{6c09094d-7cca-4dcf-a258-1bb07bf2d1c4}</Project>
+      <Name>Six.Wx.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Six.Wx.IRepositoy\Six.Wx.IRepositoy.csproj">
       <Project>{15af843c-2776-4681-9d9c-8f8f2e78d517}</Project>
       <Name>Six.Wx.IRepositoy</Name>

@@ -66,18 +66,28 @@ Page({
     console.log("传递进来的(要结算的图书)ID：" + this.data.id);
     this.data.state = parseInt(options.state);
     console.log("传递进来的(要结算的图书)状态：" + this.data.state);
+    var i=this.data.id;
 
     var that = this;
-    wx.request({
-      url: api.API_HOST + '/Zappointment/GetBooksById?id=' + this.data.id,
-      method: 'get',
-      success: function (res) {
-        that.setData({
-          hasList: true,
-          carts: res.data
+    wx.getStorage({
+      key: 'token',
+      success: function(res) {
+        wx.request({
+          url: api.API_HOST + '/Zappointment/GetBooksById?id=' + i,
+          method: 'get',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data            
+          },
+          success: function (res) {
+            that.setData({
+              hasList: true,
+              carts: res.data
+            })
+          }
         })
-      }
-    })
+      },
+    })    
   },
 
   /**

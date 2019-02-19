@@ -17,18 +17,46 @@ Page({
    */
   onLoad: function (options) {
     this.data.id = parseInt(options.id);
+    var i=this.data.id;
     console.log("传递进来的(要查询的收货地址)ID：" + this.data.id);
     var that = this;
-    wx.request({
-      url: api.API_HOST + '/ZAddress/GetAddressesByid?id=' + this.data.id,
-      method: 'get',
+    wx.getStorage({
+      key: 'token',
       success: function (res) {
-        that.setData({
-          hasList: true,
-          carts: res.data
+        wx.request({
+          url: api.API_HOST + '/ZAddress/GetAddressesByid?id=' +i,
+          method: 'GET',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          success: function (res) {
+            that.setData({
+              hasList: true,
+              carts: res.data
+            })
+          }
         })
-      }
-    })
+      },
+      fail: function (res) {
+        console.log('没有登录，请登录');
+        wx.showModal({
+          title: '提示',
+          content: '请登录后使用',
+          success: function (sm) {
+            if (sm.confirm) {//确定登录
+
+            }
+            else {
+              wx.reLaunch({
+                url: '../zindex/index',
+              })
+            }
+          }
+        })
+      },
+      complete: function (res) { },
+     })
   },
 
   // 省市区--显示选择的路径
@@ -105,44 +133,54 @@ Page({
         return;
       }
     }
-    console.log('验证结束');
+    console.log('验证通过');
+    var i = this.data.id;
 
     var that = this;
-    wx.request({
-      url: api.API_HOST + '/ZAddress/Update',
-      method: 'GET',
-      data: {
-        id: this.data.id,
-        area: region,
-        loction: inputsite,
-        consignee: inputperson,
-        photo: inputphone,
-        defaultLoc: switchloc,
-      },
-      success: function (res) {
-        if (res = 1) {
-          wx.showToast({
-            title: '修改成功',
-            icon: 'success',
-            duration: 1000
+    wx.getStorage({ // 从微信的缓存中通过key取值
+      key:'token',
+      success:function(res){ 
+        wx.request({
+          url: api.API_HOST + '/ZAddress/Update',
+          method: 'GET',
+          data: {
+            id: i,
+            area: region,
+            loction: inputsite,
+            consignee: inputperson,
+            photo: inputphone,
+            defaultLoc: switchloc,
+          },
+          header: { // 执行request函数之前先包头
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          success: function (res) {
+            if (res = 1) {
+              wx.showToast({
+                title: '修改成功',
+                icon: 'success',
+                duration: 1000
+              })
+            }
+            else {
+              wx.showToast({
+                title: '修改失败',
+                icon: 'fail',
+                duration: 1000
+              })
+            }
+          }
+        })
+
+        //1秒后跳转
+        setTimeout(function () {
+          wx.reLaunch({
+            url: '../zsite/site',
           })
-        }
-        else {
-          wx.showToast({
-            title: '修改失败',
-            icon: 'fail',
-            duration: 1000
-          })
-        }
+        }, 1000)
       }
     })
-
-    //1秒后跳转
-    setTimeout(function () {
-      wx.reLaunch({
-        url: '../zsite/site',
-      })
-    }, 1000)
   },
 
   // 删除方法
@@ -154,40 +192,49 @@ Page({
         if(sm.confirm){
           //用户点击了确定
           var that = this;
-          wx.request({
-            url: api.API_HOST + '/ZAddress/Delete?id=' + e.currentTarget.dataset.aid,
-            method: 'GET',
-            success: function (res) {
-              if (res = 1) {
-                wx.showToast({
-                  title: '删除成功',
-                  icon: 'success',
-                  duration: 1000
-                })
-              }
-              else {
-                wx.showToast({
-                  title: '删除失败',
-                  icon: 'fail',
-                  duration: 1000
-                })
-              }
-            }
-          })
+          wx.getStorage({
+            key: 'token',
+            success: function(res) {
+              wx.request({
+                url: api.API_HOST + '/ZAddress/Delete?id=' + e.currentTarget.dataset.aid,
+                method: 'GET',
+                header: {
+                  'content-type': 'application/json',
+                  'Authorization': 'BasicAuth ' + res.data
+                },
+                success: function (res) {
+                  if (res = 1) {
+                    wx.showToast({
+                      title: '删除成功',
+                      icon: 'success',
+                      duration: 1000
+                    })
+                  }
+                  else {
+                    wx.showToast({
+                      title: '删除失败',
+                      icon: 'fail',
+                      duration: 1000
+                    })
+                  }
+                }
+              })
 
-          //1秒后跳转
-          setTimeout(function () {
-            wx.reLaunch({
-              url: '../zsite/site',
-            })
-          }, 1000)
+              //1秒后跳转
+              setTimeout(function () {
+                wx.reLaunch({
+                  url: '../zsite/site',
+                })
+              }, 1000)
+            },
+          })          
         }
         else if (sm.cancel){
           // 用户点击了取消
           return;
         }
       }
-    })    
+    })
   },
 
   ohShitfadeOut() {

@@ -46,6 +46,7 @@
     <Compile Include="BooksSelect.cs" />
     <Compile Include="Browse.cs" />
     <Compile Include="Classification.cs" />
+    <Compile Include="ClientInfo.cs" />
     <Compile Include="Content.cs" />
     <Compile Include="HotSearch.cs" />
     <Compile Include="Permission.cs" />
